@@ -1,0 +1,111 @@
+\input{Includes/Preamble}
+
+\newcommand{\boxwidth}{\linewidth}
+
+\definecolor{ATLHeaderBG}{RGB}{65, 190, 30}
+\definecolor{ATLHeaderText}{RGB}{0, 0, 0}
+
+\definecolor{ATLSkillBG}{RGB}{215, 230, 210}
+\definecolor{ATLSkillText}{RGB}{0, 0, 0}
+
+\definecolor{DefinitionBoxHeaderBG}{RGB}{30, 30, 110}
+\definecolor{DefinitionBoxHeaderText}{RGB}{255, 255, 255}
+
+\definecolor{FormativeHeaderBG}{RGB}{150, 30, 150}
+\definecolor{FormativeHeaderText}{RGB}{255, 255, 255}
+
+\definecolor{GlobalContextHeaderBG}{RGB}{255, 255, 150}
+\definecolor{GlobalContextHeaderText}{RGB}{0, 0, 0}
+
+\definecolor{KeyConceptHeaderBG}{RGB}{15, 225, 225}
+\definecolor{KeyConceptHeaderText}{RGB}{0, 0, 0}
+
+\definecolor{RelatedConceptHeaderBG}{RGB}{15, 170, 170}
+\definecolor{RelatedConceptHeaderText}{RGB}{0, 0, 0}
+
+\definecolor{QuestionHeaderBG}{RGB}{240, 240, 240}
+\definecolor{QuestionHeaderText}{RGB}{0, 0, 0}
+
+\definecolor{SolutionHeaderBG}{RGB}{225, 150, 110}
+\definecolor{SolutionHeaderText}{RGB}{0, 0 , 0}
+
+\definecolor{SummativeHeaderBG}{RGB}{195, 15, 15}
+\definecolor{SummativeHeaderText}{RGB}{255, 255, 255}
+
+\newcommand{\ATLHeader}[1]{
+    \cellcolor{ATLHeaderBG}\textcolor{ATLHeaderText}{
+        \bfseries\footnotesize
+        ATL SKILL (#1) \hfill \faGears
+    }
+}
+
+\newcommand{\ATLSkill}[1]{
+    \cellcolor{ATLSkillBG}\textcolor{ATLSkillText}{
+        \itshape #1
+    }
+}
+
+\newcommand{\DefinitionBoxHeader}{
+    \cellcolor{DefinitionBoxHeaderBG}\textcolor{DefinitionBoxHeaderText}{
+        \bfseries\footnotesize
+        DEFINITIONS \hfill \faPencil
+    }
+}
+
+\newcommand{\FormativeHeader}{
+    \cellcolor{FormativeHeaderBG}\textcolor{FormativeHeaderText}{
+        \bfseries\footnotesize
+        FORMATIVE ASSESSMENT \hfill \faComments
+    }
+}
+
+\newcommand{\GlobalContextHeader}[1]{
+    \cellcolor{GlobalContextHeaderBG}\textcolor{GlobalContextHeaderText}{
+        \bfseries\footnotesize
+        GLOBAL CONTEXT (#1) \hfill \faGlobe
+    }
+}
+
+\newcommand{\KeyConceptHeader}[1]{
+    \cellcolor{KeyConceptHeaderBG}\textcolor{KeyConceptHeaderText}{
+        \bfseries\footnotesize
+        KEY CONCEPT (#1) \hfill \faKey
+    }
+}
+
+\newcommand{\RelatedConceptHeader}[1]{
+    \cellcolor{RelatedConceptHeaderBG}\textcolor{RelatedConceptHeaderText}{
+        \bfseries\footnotesize
+        RELATED CONCEPT (#1) \hfill \faLink
+    }
+}
+
+\newcommand{\SolutionHeader}[1]{
+    \cellcolor{SolutionHeaderBG}\textcolor{SolutionHeaderText}{
+        \bfseries\footnotesize 
+        #1 \hfill \faPaste
+    }
+}
+
+\newcommand{\SummativeHeader}{
+    \cellcolor{SummativeHeaderBG}\textcolor{SummativeHeaderText}{
+        \bfseries\footnotesize
+        SUMMATIVE ASSESSMENT \hfill \faCheck
+    }
+}
+
+\newcommand{\QuestionBox}[1]{
+    \cellcolor{QuestionHeaderBG}\textcolor{QuestionHeaderText}{
+        #1
+    }
+}
+
+\lhead{\footnotesize\texttt{U\UnitNumber: \UnitTitle \\ L\LessonNumber: \LessonTitle}}
+\rhead{\footnotesize\ttfamily [DESIGN/\CourseName/U\UnitNumber/L\LessonNumber]}
+
+\lfoot{\includegraphics[height=2cm,valign=c]{Files/logo}}
+\cfoot{\footnotesize DESIGN/\CourseName/U\UnitNumber/L\LessonNumber\ | \LessonTitle \\ Woodstock School | Mussoorie, Uttarakhand, India}
+\rfoot{\includegraphics[height=2cm,valign=c]{Files/ib-world-school-logo-1-colour}}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0em}{}[{\titlerule[0.5pt]}]
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0em}{}
