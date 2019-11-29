@@ -1,6 +1,7 @@
 \include{Includes/Guided_Notes_Preamble}
 
-\usepackage{circuitikz,subcaption}
+\usepackage{circuitikz,subcaption,tikzsymbols}
+
 \usetikzlibrary{arrows}
 
 \def\CourseName{MYP3}
@@ -12,54 +13,6 @@
 \def\UnitTitle{Circuits \& Electronics}
 
 \begin{document}
-    % Core Components (Remove when no longer required!)
-    \thispagestyle{empty}
-    \begin{tabularx}{\boxwidth}{| X | }
-        \hline
-        \ATLHeader{} \\\hline
-        \ATLSkill{} \\\hline
-        \QuestionBox{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \DefinitionBoxHeader \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \GlobalContextHeader{}\\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \KeyConceptHeader{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \RelatedConceptHeader{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \SolutionHeader{SOLUTION} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X | }
-        \hline
-        \FormativeHeader \\\hline
-        \QuestionBox{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \SummativeHeader \\\hline
-        \QuestionBox{}\\\hline
-    \end{tabularx}
-
-    \newpage
-
     \begin{center}
         \huge\bfseries
         \LessonTitle
@@ -133,13 +86,13 @@
         \hline
         \ATLHeader{Communication Skills} \\\hline
         \ATLSkill{...make inferences and draw conclusions...} \\\hline
-        \QuestionBox{Briefly describe the \emph{loads} typical to the two electrical circuits given above.} \\\hline
+        \QuestionBox{{\scriptsize\bfseries Q1} Briefly describe the \emph{loads} typical to the two electrical circuits given above.} \\\hline
         \ \\[6cm]\hline
     \end{tabularx}
 
     \pagebreak
     \subsection{Simple Components}
-    We are going to build a few simple circuits to explore electricity and its variosu applications. Here is a list of the components we will need for this first lesson.
+    We are going to build a few simple circuits to explore electricity and its various applications. Here is a list of the components we will need for this first lesson.
 
     \medskip
     \begin{tabularx}{\boxwidth}{| >{\bfseries}p{0.15\boxwidth} | X | >{\centering\arraybackslash}p{0.15\boxwidth} | >{\centering\arraybackslash}p{0.15\boxwidth}| }
@@ -188,9 +141,8 @@
                 \hline
                 \ATLHeader{Communication Skills} \\\hline
                 \ATLSkill{...use and interpret a range of discipline-specific terms and symbols...} \\\hline
-                \QuestionBox{Identify and label each of the components in the diagram on the left.} \\\hline
-                \ATLSkill{...make inferences and draw conclusions...} \\\hline
-                \QuestionBox{What do the lines show in a circuit diagram?} \\\hline
+                \QuestionBox{{\scriptsize\bfseries Q2} Identify and label each of the components in the diagram on the left.} \\\hline
+                \QuestionBox{{\scriptsize\bfseries Q3} What do the lines show in a circuit diagram?} \\\hline
                 \ \\[1.25cm]\hline
             \end{tabularx}
         \end{center}
@@ -198,7 +150,7 @@
 
     \vspace*{1cm}
 
-    \textbf{Note:} You might have learned in Physics class that electricity is the flow of electrons from a source of negative potential to positive. This is called the ``Electron Flow'' model of electricity. However, this is an understanding of physics that is \emph{newer} than the study of electrical circuits. In so-called ``Conventional Flow'', we think of electricity as flowing from positive to negative. Although technically wrong, this understanding does not impact how we build our circuits.
+    \textbf{Note:} You might have learned in Physics class that electricity is the flow of electrons from a source of negative potential to positive. This is called the ``electron flow'' model of electricity. However, this is an understanding of physics that is \emph{newer} than the study of electrical circuits. In ``conventional flow'', we think of electricity as flowing from positive to negative.
 
     \medskip
     All of the circuit diagrams you see in this course, as well as a majority of diagrams you'll find elsewhere, are written under the conventional flow assumption. 
@@ -206,16 +158,24 @@
     \pagebreak
 
     \section{Developing Technical Skills}
-    
+    We will begin our exploration of electrical circuits by building \emph{paper circuits}. These circuits are built by using conductive tape (typically a copper foil) placed on paper with other components placed appropriately on top of this tape and secured using normal cellophane tape.
+
     \subsection{Circuit \#1}
+    This is the simplest circuit we will work with, but will allow you to practice using the available materials for building paper cirtuics.
+
     \subsubsection*{You Will Need:}
-    \begin{itemize}[noitemsep]
+    \begin{itemize}[noitemsep]\small
         \item (1) CR2032 Coin Battery
         \item (1) LED
         \item (1) Roll of Copper Tape
+        \item (1) Roll of Cellophane Tape
     \end{itemize}
 
-    \subsubsection*{Directions}:
+    \subsubsection*{Directions:}
+    Create the paper circuit below by tracing the lines with copper tape and placing the components where indicated.
+
+    \medskip
+    \textbf{Note:} For a coin battery, the positive and negative terminals are the top and bottom of the battery. This requires the battery to be ``sandwiched'' between the copper tape as indicated in the diagram below.
 
     \begin{center}
         \begin{tikzpicture}
@@ -241,7 +201,108 @@
             \draw[->,>=triangle 45,blue,very thick] (8.5, -1.5) to [out=90,in=-180] (9.875, -1.25);
         \end{tikzpicture}
     \end{center}
+
     \pagebreak
+    \subsection{Circuit \#2}
+    This second circuit introduces some control over the flow of electricity by adding a push button.
+
+    \subsubsection*{You Will Need:}
+        \begin{itemize}[noitemsep]\small
+            \item (1) CR2032 Coin Battery
+            \item (1) LED
+            \item (1) Push Button
+            \item (1) Roll of Copper Tape
+        \end{itemize}
+
+    \subsubsection*{Directions}
+    Create the following paper circuit. Your push button may look slightly different from the one in the diagram, so make the appropriate adjustments.
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[line width=6mm,YellowOrange] (0, 0) -- (0, 5) -- (4.25, 5);
+            \draw[line width=6mm,YellowOrange] (5.75, 5) -- (10, 5) -- (10, 1);
+            \draw[line width=6mm,YellowOrange] (10, -1) -- (10, -5) -- (0, -5) -- (0, 0);
+
+            \fill[black!25] (0, 0) circle (10mm);            
+            \draw[line width=6mm, dashed,YellowOrange!50] (0, -0.25) -- (0, -1);
+            \draw[line width=6mm,YellowOrange] (0, 0.25) -- (0, 1);
+            \node[align=center] at (0, 0) {CR2032};
+
+            \draw[very thick,black!50] (10, 2.25) -- (10, -1.75);
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]10,0) arc (-60:240:2.5mm);
+
+            \node[anchor=south east, xshift=-30, yshift=10] at (0, 0) {above};
+            \draw[->,>=triangle 45,blue,very thick] (-1.5, 1) to [out=90,in=150] (0, 0.5);
+            \node[anchor=north west, xshift=30, yshift=-10] at (0, 0) {below};
+            \draw[->,>=triangle 45,blue,very thick] (1.5, -1) to [out=-90,in=-50] (0, -0.5);
+            
+            \node[align=left,anchor=west,xshift=20] at (10, 0) {flat side};
+            \node[anchor=north east,xshift=-20,yshift=-40] at (10, 0) {shorter leg};
+            \draw[->,>=triangle 45,blue,very thick] (11.5, -0.25) to [out=-90, in=-10] (10.25, -0.25);
+            \draw[->,>=triangle 45,blue,very thick] (8.5, -1.5) to [out=90,in=-180] (9.875, -1.25);
+
+            \fill[rounded corners,black!15] (4, 4.75) rectangle (6, 5.25);
+            \fill[rounded corners,black!25] (4.5, 4.5) rectangle (5.5, 5.5);
+            \fill[black] (5, 5) circle (0.25);
+            \fill[white] (4.25, 5) circle (0.1);
+            \fill[white] (5.75, 5) circle (0.1);
+            \fill[YellowOrange] ([shift=(90:1mm)]4.25, 5) arc (90:270:1mm);
+            \fill[YellowOrange] ([shift=(90:1mm)]5.75, 5) arc (90:-90:1mm);
+        \end{tikzpicture}
+    \end{center}
+
+    \vspace{1cm}
+
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \FormativeHeader \\\hline
+        \QuestionBox{In the spaces below, sketch the circuit diagrams for each of the two paper circuits you build.} \\\hline
+    \end{tabularx}
+
+    \vspace*{-1pt}
+    \begin{tabularx}{\boxwidth}{| X | X |}
+        \hline
+        \BoxHeader{1}{Circuit \#1} & \BoxHeader{1}{Circuit \#2}\\\hline
+        \ & \ \\[4.5cm]\hline
+    \end{tabularx}
     
+    \pagebreak
+
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \FormativeHeader \\\hline
+        \QuestionBox{In the space below, sketch a paper circuit that will include (2) LEDs.} \\\hline
+        \ \\[12cm]\hline
+        \QuestionBox{Predict what will happen when your circuit is powered. Then, test your hypothesis by building the paper circuit.}
+        \ \\\hline
+        \ \\[4cm]\hline
+        \QuestionBox{What actually happens when your circuit is powered? Why do you think this behaviour occurs?} \\\hline
+        \ \\[4cm]\hline
+    \end{tabularx}
+
+    \pagebreak
+
     \section{Reflections}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills}\\\hline
+        \ATLSkill{...make inferences and draw conclusions...}\\\hline
+        \QuestionBox{Why do you think the ability to draw conclusions from incomplete information or knowledge is an important skill to develop? Are there any dangers in doing so?}\\\hline
+        \ \\[3.5cm]\hline
+        \ATLSkill{...use and interpret a range of discipline-specific terms and symbols...}\\\hline
+        \QuestionBox{In what other contexts are special terms and symbols used? Consider examples from your daily life, such as your hobbies and other activities, and not just academics.}\\\hline
+        \ \\[3.5cm]\hline
+    \end{tabularx}
+
+    \bigskip
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \QuestionBox{What aspect of this lesson was the most challenging for you? How did you overcome that challenge?}\\\hline
+        \ \\[3.5cm]\hline
+        \QuestionBox{Select the option which best reflects how confident you are in applying what you have learend in this lesson.}\\\hline
+        \, \hfill \Sadey[5][orange] \hfill \Neutrey[5][gray] \hfill \Smiley[5][cyan] \hfill \,\\\hline
+        \QuestionBox{What additional questions do you still have about this lesson's content?}\\\hline
+        \ \\[3.5cm]\hline
+    \end{tabularx}
 \end{document}
