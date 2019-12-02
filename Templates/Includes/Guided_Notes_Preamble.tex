@@ -103,14 +103,17 @@
     }
 }
 
+\newcounter{QuestionCounter}
+
 \newcommand{\QuestionBox}[1]{
+    \stepcounter{QuestionCounter}
     \cellcolor{QuestionHeaderBG}\textcolor{QuestionHeaderText}{
-        #1
+        {\bfseries\scriptsize Q\theQuestionCounter} #1
     }
 }
 
-\lhead{\footnotesize\texttt{U\UnitNumber: \UnitTitle \\ L\LessonNumber: \LessonTitle}}
-\rhead{\footnotesize\ttfamily [DESIGN/\CourseName/U\UnitNumber/L\LessonNumber]\\\ }
+\lhead{\scriptsize\texttt{U\UnitNumber: \UnitTitle \\ L\LessonNumber: \LessonTitle}}
+\rhead{\scriptsize\ttfamily [DESIGN/\CourseName/U\UnitNumber/L\LessonNumber]\\\ }
 
 \lfoot{\includegraphics[height=2cm,valign=c]{Files/logo}}
 \cfoot{\footnotesize DESIGN/\CourseName/U\UnitNumber/L\LessonNumber\ | \LessonTitle \\ Woodstock School | Mussoorie, Uttarakhand, India}
