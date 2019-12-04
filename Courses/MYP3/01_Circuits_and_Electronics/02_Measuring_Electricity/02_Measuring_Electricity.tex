@@ -1,0 +1,166 @@
+\include{Includes/Guided_Notes_Preamble}
+
+\usepackage{circuitikz,subcaption}
+
+\def\CourseName{MYP3}
+
+\def\LessonNumber{02}
+\def\LessonTitle{Measuring Electricity}
+
+\def\UnitNumber{01}
+\def\UnitTitle{Circuits \& Electronics}
+
+\begin{document}
+    % Core Components (Remove when no longer required!)
+    \thispagestyle{empty}
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \ATLHeader{} \\\hline
+        \ATLSkill{} \\\hline
+        \QuestionBox{} \\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \DefinitionBoxHeader \\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \GlobalContextHeader{}\\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \KeyConceptHeader{} \\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \RelatedConceptHeader{} \\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \SolutionHeader{SOLUTION} \\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \FormativeHeader \\\hline
+        \QuestionBox{} \\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \SummativeHeader \\\hline
+        \QuestionBox{}\\\hline
+    \end{tabularx}
+
+    \newpage
+
+    \begin{center}
+        \huge\bfseries
+        \LessonTitle
+    \end{center}
+
+    \section{Before You Begin}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \KeyConceptHeader{Development} \\\hline
+    \end{tabularx}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \RelatedConceptHeader{Invention} \\\hline
+        \QuestionBox{We are examining the invention of electrical circuits as a \emph{turning point} in history. What other inventions do you think resulted in an historical turning point?} \\\hline
+        \ \\[3cm]\hline
+    \end{tabularx}
+    \pagebreak
+
+    \section{Technical Background}
+
+    \subsection{Voltage}
+    Voltage, measured in \emph{volts} (\textbf{V}), is a \emph{potential} difference between a positively and negatively charged part of a circuit. A common example illustrating the concept of voltage that of a water tank or tower.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[height=6cm]{Extras/voltage}
+        \caption*{\scriptsize Image courtesy sparkfun.com.}
+    \end{figure}
+    In this illustration, voltage can be seen as equivalent to the \emph{water pressure} coming out of the hose at the bottom of the system. Factors such as the height and size of the tank can have an impact on how much pressure is available. This is the \emph{potential energy} concept. While batteries and other sources of electricity provide power in different ways, the analogy is still useful for understanding what voltage contributes to an electrical circuit.
+
+    \subsubsection*{Voltage Drop / Forward Voltage} 
+    \emph{Voltage Drop} or \emph{Forward Voltage} is the amoung of voltage ``consumed'' by a load or other component in an electrical circuit.
+
+    \medskip
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \SolutionHeader{Kirchhoff's Voltage Law} \\\hline
+        \emph{Kirchhoff's Voltage Law} (or \emph{Kirchhoff's Second Law}) essentially states that sum of all voltage drops in a clossed electrical circuit, such as the simple circuits we built in the previous lesson, will be equal to the voltage of the source.\\\hline
+    \end{tabularx}
+
+    \subsection{Current}
+    Current, measured in \emph{amperes} (\textbf{A}), is the \emph{flow} of electricity within a circuit. You can think of current as the \emph{speed} at which electricity flows.    
+
+    \medskip
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \ATLHeader{Communication Skills} \\\hline
+        \ATLSkill{...make inferences and draw conclusions...} \\\hline
+        \QuestionBox{Considering the water tank example given above for voltage, what changes to the system would have an impact on the flow of water out of it?} \\\hline
+        \ \\[4cm]\hline
+    \end{tabularx}
+
+    \subsection{Resistance}
+    % Ohm's Law
+
+    \subsection{The Resistor}
+
+    \begin{tabularx}{\boxwidth}{| >{\bfseries}p{0.15\boxwidth} | X | >{\centering\arraybackslash}p{0.15\boxwidth} | >{\centering\arraybackslash}p{0.15\boxwidth}| }
+        \hline
+        \BoxHeader{1}{Name} & \BoxHeader{1}{Description} & \BoxHeader{1}{Symbol} & \BoxHeader{1}{Example} \\\hline
+        Resistor & 
+        A \emph{resistor} is an electronic component designed to reduce the current flow in a circuit.
+
+        \medskip
+        The \emph{resistance} offered by each resistor is measured in Ohms ($\Omega$).
+        & 
+        \raisebox{-0.5cm}{
+            {\tikz \draw (0, 0) to [R] (2, 0);} 
+        }
+
+        \bigskip
+        {\tikz \draw (0, 0) to [european resistor] (2, 0);}
+        & 
+        \includegraphics[width=0.9\boxwidth,valign=t]{Extras/resistor}
+        \\\hline
+    \end{tabularx}
+
+    \medskip
+    The type of resistor we will be using are labeled using coloured bands to denote their resistance. You have a copy of the following image in your electronics kits:
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[height=8cm]{Extras/resistor_chart}
+        \caption*{\scriptsize Image courtesy digikey.com.}
+    \end{figure}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills} \\\hline
+        \ATLSkill{...use and interpret a range of discipline-specific terms and symbols...} \\\hline
+        \QuestionBox{In the next section, you'll need one of each of the following resistance value resistors: $220 \Omega$, $1 \text{k}\Omega$, $10 \text{k}\Omega$. These are available in your electronics kit. Determine whether your resistors are $4-$ or $5-$band and identify the correct colour bands for each required value. You can safely ignore the ``tolerance'' band for now.} \\\hline
+
+        \textbf{220 $\mathbf{\Omega}$ \hfill 1 k$\mathbf{\Omega}$ \hfill 10 k$\mathbf{\Omega}$ \hspace{4cm} \,} \\[4cm]\hline
+    \end{tabularx}
+
+    \pagebreak
+
+    \section{Developing Technical Skills}
+    
+    \pagebreak
+    
+    \section{Reflections}
+\end{document}
