@@ -80,6 +80,7 @@
     \pagebreak
 
     \section{Technical Background}
+    This lesson will be primarily concerned with the way we measure electricity within our circuits, and how we can select appropriate components based on the amount of electricity supplied and/or required.
 
     \subsection{Voltage}
     Voltage, measured in \emph{volts} (\textbf{V}), is a \emph{potential} difference between a positively and negatively charged part of a circuit. A common example illustrating the concept of voltage that of a water tank or tower.
@@ -87,18 +88,18 @@
     \begin{figure}[h]
         \centering
         \includegraphics[height=6cm]{Extras/voltage}
-        \caption*{\scriptsize Image courtesy sparkfun.com.}
+        \caption*{\small Image courtesy sparkfun.com.}
     \end{figure}
     In this illustration, voltage can be seen as equivalent to the \emph{water pressure} coming out of the hose at the bottom of the system. Factors such as the height and size of the tank can have an impact on how much pressure is available. This is the \emph{potential energy} concept. While batteries and other sources of electricity provide power in different ways, the analogy is still useful for understanding what voltage contributes to an electrical circuit.
 
     \subsubsection*{Voltage Drop / Forward Voltage} 
-    \emph{Voltage Drop} or \emph{Forward Voltage} is the amoung of voltage ``consumed'' by a load or other component in an electrical circuit.
+    \emph{Voltage Drop} or \emph{Forward Voltage} is the amount of voltage required to power a load or other component in an electrical circuit.
 
     \medskip
     \begin{tabularx}{\boxwidth}{| X |}
         \hline
         \SolutionHeader{Kirchhoff's Voltage Law} \\\hline
-        \emph{Kirchhoff's Voltage Law} (or \emph{Kirchhoff's Second Law}) essentially states that sum of all voltage drops in a clossed electrical circuit, such as the simple circuits we built in the previous lesson, will be equal to the voltage of the source.\\\hline
+        \emph{Kirchhoff's Voltage Law} (or \emph{Kirchhoff's Second Law}) essentially states that sum of all voltage drops in a closed electrical circuit, such as the simple circuits we built in the previous lesson, will be equal to the voltage of the source.\\\hline
     \end{tabularx}
 
     \subsection{Current}
@@ -113,7 +114,49 @@
         \ \\[4cm]\hline
     \end{tabularx}
 
+    \subsubsection*{Forward Current}
+    Similar to forward voltage, forward current is the amount of current required by a load or component to work properly. As we will see later, the \emph{maximum} forward current is often supplied by device manufacturers, which indicates how much current the device or component can handle before becoming damanged. This value will have a significant impact on how we design our circuits.
+
+    \medskip
+    {\small\textbf{Note:} One ampere (\textbf{1A}) represents a significant amount of current for our simple components. Because of this, we will often discuss maximum forward current in terms of milliamperes (\textbf{mA}), or ``milliamps''. One milliamp represents $\frac{1}{1000}$ of an ampere.
+    
+    \medskip
+    \textbf{Example:} A typical maximum forward current we will see is \textbf{20mA}. This represents $\frac{20}{1000}$, or \textbf{0.02A}.
+    }
+
     \subsection{Resistance}
+    Resistance, measured in Ohms ($\mathbf{\Omega}$), is a property of different materials to resist the flow of electricity within a circuit.
+
+    \subsubsection*{Conductor v. Insulator}
+    Materials can be divided into two broad categories: conductors and insulators. A \emph{conductor} offers little resistance to the flow of electricity, while an \emph{insulator} provides significant resistance. For example, copper wire is a conductor while most plastics are insulators. 
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[height=4cm]{Extras/copper_wire}
+        \caption*{\small Image courtesy of sparkfun.com.}
+    \end{figure}
+
+    The above image shows a copper wire that has been stripped of some of its plastic sheath insulation.
+
+    \medskip
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \ATLHeader{Communication Skills} \\\hline
+        \ATLSkill{...make inferences and draw conclusions...} \\\hline
+        \QuestionBox{Why do conductive wires often get wrapped in an insulating material, like in the image above?} \\\hline
+        \ \\[3cm]\hline
+        \QuestionBox{Many of the components we are going to be using are made using a \emph{semiconductor} material. How do you think semiconductors compare to conductors and insulators?} \\\hline
+        \ \\[3cm]\hline
+    \end{tabularx}
+
+    \subsection{Ohm's Law}
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \SolutionHeader{Ohm's Law} \\\hline
+        \emph{Ohm's Law} provides us with a very simple formula linking voltage (\textbf{V}), current (\textbf{I}), and resistance (\textbf{R}):\\
+        \[ V = IR \hspace*{2cm} \text{OR} \hspace*{2cm} I = \frac{V}{R} \hspace*{2cm} \text{OR} \hspace*{2cm} R = \frac{V}{I} \]\\\hline
+    \end{tabularx}
+
     % Ohm's Law
 
     \subsection{The Resistor}
@@ -122,7 +165,7 @@
         \hline
         \BoxHeader{1}{Name} & \BoxHeader{1}{Description} & \BoxHeader{1}{Symbol} & \BoxHeader{1}{Example} \\\hline
         Resistor & 
-        A \emph{resistor} is an electronic component designed to reduce the current flow in a circuit.
+        A \emph{resistor} is an electronic component specifically designed to reduce the current flow in a circuit.
 
         \medskip
         The \emph{resistance} offered by each resistor is measured in Ohms ($\Omega$).
@@ -144,7 +187,7 @@
     \begin{figure}[h]
         \centering
         \includegraphics[height=8cm]{Extras/resistor_chart}
-        \caption*{\scriptsize Image courtesy digikey.com.}
+        \caption*{\small Image courtesy digikey.com.}
     \end{figure}
 
     \begin{tabularx}{\boxwidth}{| X |}
@@ -159,7 +202,15 @@
     \pagebreak
 
     \section{Developing Technical Skills}
-    
+    % Circuit #1:
+    % -- Simple circuit #2 with a 9-volt battery
+    % -- What happens?
+    % Look @ Data Sheet
+    % -- Finding data sheets.
+    % -- Looking for relevant information.
+    % -- Calculating required resistance.
+    % Circuit #2:
+    % -- Simple circuit with appropriate resistor & 9-volt battery.
     \pagebreak
     
     \section{Reflections}
