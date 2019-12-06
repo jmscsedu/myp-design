@@ -1,6 +1,7 @@
 \include{Includes/Guided_Notes_Preamble}
 
 \usepackage{circuitikz,subcaption}
+\usetikzlibrary{arrows}
 
 \def\CourseName{MYP3}
 
@@ -202,16 +203,102 @@
     \pagebreak
 
     \section{Developing Technical Skills}
-    % Circuit #1:
-    % -- Simple circuit #2 with a 9-volt battery
-    % -- What happens?
+    % ! Circuit #1:
+    % ! -- Simple circuit #2 with a 9-volt battery
+    % ! -- What happens?
     % Look @ Data Sheet
     % -- Finding data sheets.
     % -- Looking for relevant information.
     % -- Calculating required resistance.
     % Circuit #2:
     % -- Simple circuit with appropriate resistor & 9-volt battery.
+
+    \subsection{Circuit \#4}
+    This circuit usees a 9-volt battery to examine how voltage impacts the performance of circuit components. Note that you might need to hold the 9-volt battery in place. If this is proving difficult, team up with a partner who can help you operate the circuit with the battery properly positioned.
+
+    \subsubsection*{You Will Need:}
+    \begin{itemize}[noitemsep]\small
+        \item (1) 9V Battery
+        \item (1) LED
+        \item (1) Pushbutton
+        \item (1) Roll of Copper thispagestyle
+        \item (1) Roll of Cellophane Tape
+    \end{itemize}
+
+    \subsubsection*{Directions}
+    Create the following paper circuit. Note the position of the different sized terminals on the 9V battery.
+
+    \begin{center}
+        \newdimen\R
+        \R=0.38cm
+        \begin{tikzpicture}
+
+            \draw[line width=6mm,YellowOrange] (0, 0) -- (0, 5) -- (4.25, 5);
+            \draw[line width=6mm,YellowOrange] (5.75, 5) -- (10, 5) -- (10, 1);
+            \draw[line width=6mm,YellowOrange] (10, -1) -- (10, -5) -- (0, - 5) -- (0, 0);
+
+            % 9-Volt Battery:
+            \filldraw[fill=black!25,rounded corners] (-0.845, -1.3) rectangle (0.845, 1.3);
+            \draw[line width=6mm,YellowOrange!50,dashed] (0, 0.25) -- (0, 1.3);     
+            \draw[line width=6mm,YellowOrange!50,dashed] (0, -0.25) -- (0, -1.3);
+
+            \draw[line width=0.5mm] (0, 0.72) circle (\R);
+            \draw[line width=0.5mm] (0, -0.72) circle (1.2\R);
+            \begin{scope}[yshift=-0.72cm]
+                \draw[line width=0.5mm] (0:0.38) \foreach \x in {60,120,...,359} {
+                    -- (\x:0.38)
+                }-- cycle (90:0.38);
+            \end{scope}
+
+            \draw[->,>=triangle 45,very thick, blue] (2, 0) node[anchor=north west] {leave a gap!} to [out=120,in=40] (0.25, 0);
+
+            % Pushbutton
+            \fill[rounded corners,black!15] (4, 4.75) rectangle (6, 5.25);
+            \fill[rounded corners,black!25] (4.5, 4.5) rectangle (5.5, 5.5);
+            \fill[black] (5, 5) circle (0.25);
+            \fill[white] (4.25, 5) circle (0.1);
+            \fill[white] (5.75, 5) circle (0.1);
+            \fill[YellowOrange] ([shift=(90:1mm)]4.25, 5) arc (90:270:1mm);
+            \fill[YellowOrange] ([shift=(90:1mm)]5.75, 5) arc (90:-90:1mm);
+        
+            % LED
+            \draw[very thick,black!50] (10, 2.25) -- (10, -1.75);    
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]10,0) arc (-60:240:2.5mm);
+
+        \end{tikzpicture}
+    \end{center}
+
+    \medskip
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \ATLHeader{Communication Skills} \\\hline
+        \ATLSkill{...make inferences and draw conclusions...} \\\hline
+        \QuestionBox{What happens when you power the above circuit? Did you expect that to happen? Attempt an explanation based on the technical details discussed earlier, particularly the relationship between voltage and current.} \\\hline
+        \ \\[3.5cm]\hline
+    \end{tabularx}
+
     \pagebreak
-    
+
+    \subsection{Examining Datasheets}
+
+    \begin{figure}[h]
+        \hspace*{0.5cm}
+        \begin{subfigure}{4cm}
+            \centering
+            \includegraphics[width=3cm]{Extras/datasheet_whole}
+            \caption*{\footnotesize\raggedright An overview of an entire datasheet, courtesy element14.com.}
+        \end{subfigure}
+        \hspace*{2cm}
+        \begin{subfigure}{10cm}
+            \centering
+            \begin{tikzpicture}
+             \node[anchor=south west] at (0, 0) {\includegraphics[width=9.75cm]{Extras/datasheet_part}};
+            \draw[rounded corners, thick, red] (0.05, 0.1) rectangle (9.95, 0.8);
+            \draw[rounded corners, thick, red] (0.05, 1.55) rectangle (9.95, 2);
+            \end{tikzpicture} 
+      \caption*{\footnotesize A zoom in on the ``Electrical Characteristics'' portion of the datasheet, with important details highlighted.}
+        \end{subfigure}
+    \end    {figure}
+
     \section{Reflections}
 \end{document}
