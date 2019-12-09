@@ -1,7 +1,7 @@
 \include{Includes/Guided_Notes_Preamble}
 
 \usepackage{circuitikz,subcaption}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows,calc}
 
 \def\CourseName{MYP3}
 
@@ -206,14 +206,14 @@
     % ! Circuit #1:
     % ! -- Simple circuit #2 with a 9-volt battery
     % ! -- What happens?
-    % Look @ Data Sheet
-    % -- Finding data sheets.
-    % -- Looking for relevant information.
-    % -- Calculating required resistance.
+    % ! Look @ Data Sheet
+    % ! -- Finding data sheets.
+    % ! -- Looking for relevant information.
     % Circuit #2:
     % -- Simple circuit with appropriate resistor & 9-volt battery.
+    % -- Calculating required resistance.
 
-    \subsection{Circuit \#4}
+    \subsection{Circuit \#4: Higher Voltages}
     This circuit usees a 9-volt battery to examine how voltage impacts the performance of circuit components. Note that you might need to hold the 9-volt battery in place. If this is proving difficult, team up with a partner who can help you operate the circuit with the battery properly positioned.
 
     \subsubsection*{You Will Need:}
@@ -239,18 +239,20 @@
 
             % 9-Volt Battery:
             \filldraw[fill=black!25,rounded corners] (-0.845, -1.3) rectangle (0.845, 1.3);
-            \draw[line width=6mm,YellowOrange!50,dashed] (0, 0.25) -- (0, 1.3);     
-            \draw[line width=6mm,YellowOrange!50,dashed] (0, -0.25) -- (0, -1.3);
+            
 
-            \draw[line width=0.5mm] (0, 0.72) circle (\R);
-            \draw[line width=0.5mm] (0, -0.72) circle (1.2\R);
+            \draw[fill=black!50,line width=0.5mm] (0, 0.72) circle (\R);
+            \draw[fill=black!50,line width=0.5mm] (0, -0.72) circle (1.2\R);
             \begin{scope}[yshift=-0.72cm]
-                \draw[line width=0.5mm] (0:0.38) \foreach \x in {60,120,...,359} {
+                \draw[fill=black!25,line width=0.5mm] (0:0.38) \foreach \x in {60,120,...,359} {
                     -- (\x:0.38)
                 }-- cycle (90:0.38);
             \end{scope}
 
-            \draw[->,>=triangle 45,very thick, blue] (2, 0) node[anchor=north west] {leave a gap!} to [out=120,in=40] (0.25, 0);
+            \draw[line width=6mm,YellowOrange!50,dashed,draw opacity=0.75] (0, 0.25) -- (0, 1.3);     
+            \draw[line width=6mm,YellowOrange!50,dashed,draw opacity=0.75] (0, -0.25) -- (0, -1.3);
+
+            \draw[->,>=triangle 45,very thick, blue] (3, 0.5) node[anchor=south east,yshift=-10] {leave a gap!} to [out=-40,in=-40] (0.25, 0);
 
             % Pushbutton
             \fill[rounded corners,black!15] (4, 4.75) rectangle (6, 5.25);
@@ -264,7 +266,6 @@
             % LED
             \draw[very thick,black!50] (10, 2.25) -- (10, -1.75);    
             \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]10,0) arc (-60:240:2.5mm);
-
         \end{tikzpicture}
     \end{center}
 
@@ -280,7 +281,12 @@
     \pagebreak
 
     \subsection{Examining Datasheets}
+    A \emph{datasheet} is a technical document listing important details about each specific component we will use in our circuits. While these had traditionally been packaged with purchased items, most of the time they are now just a quick Google search away.
 
+    \medskip
+    The following two images show first an overview of a datasheet for one of the red LEDs we have been using, then the specific area of the datasheet we will be interested in for this lesson.
+
+    \medskip
     \begin{figure}[h]
         \hspace*{0.5cm}
         \begin{subfigure}{4cm}
@@ -293,12 +299,180 @@
             \centering
             \begin{tikzpicture}
              \node[anchor=south west] at (0, 0) {\includegraphics[width=9.75cm]{Extras/datasheet_part}};
-            \draw[rounded corners, thick, red] (0.05, 0.1) rectangle (9.95, 0.8);
-            \draw[rounded corners, thick, red] (0.05, 1.55) rectangle (9.95, 2);
+            \fill[rounded corners, thick, yellow, fill opacity=0.2] (0.05, 0.1) rectangle (9.95, 0.8);
+            \fill[rounded corners, thick, yellow, fill opacity=0.2]  (0.05, 1.55) rectangle (9.95, 2);
             \end{tikzpicture} 
-      \caption*{\footnotesize A zoom in on the ``Electrical Characteristics'' portion of the datasheet, with important details highlighted.}
+      \caption*{\footnotesize A zoom in on the ``Electrical Characteristics'' portion of the datasheet, with required details highlighted.}
         \end{subfigure}
-    \end    {figure}
+    \end{figure}
 
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills} \\\hline
+        \ATLSkill{...use and interpret a range of discipline-specific terms and symbols...} \\\hline
+        \QuestionBox{Using the information in the data sheet above, describe how \emph{Kirchhoff's Voltage Law} explains why your two LED circuit from Lesson \#1 did not function as intended.}\\\hline
+        \ \\[4cm]\hline
+        \QuestionBox{Later this unit, we will be using a ``BC547B Transistor''. Find a datasheet for this component online and determine the current and voltage associated with ``Small Signal Current Gain'' (h$_\text{fe}$).} \\\hline
+        \ \\[4cm]\hline
+    \end{tabularx}
+
+    \subsection{Circuit \#5: Using Resistors}
+
+    \begin{center}
+        \newdimen\R
+        \R=0.38cm
+        \begin{tikzpicture}
+
+            \draw[line width=6mm,YellowOrange] (0, 0) -- (0, 5) -- (4.25, 5);
+            \draw[line width=6mm,YellowOrange] (5.75, 5) -- (10, 5) -- (10, 1);
+            \draw[line width=6mm,YellowOrange] (10, -1) -- (10, -5) -- (6, -5);
+            \draw[line width=6mm,YellowOrange] (4, -5) -- (0, -5) -- (0, 0);
+
+            % 9-Volt Battery:
+            \filldraw[fill=black!25,rounded corners] (-0.845, -1.3) rectangle (0.845, 1.3);
+            
+
+            \draw[fill=black!50,line width=0.5mm] (0, 0.72) circle (\R);
+            \draw[fill=black!50,line width=0.5mm] (0, -0.72) circle (1.2\R);
+            \begin{scope}[yshift=-0.72cm]
+                \draw[fill=black!25,line width=0.5mm] (0:0.38) \foreach \x in {60,120,...,359} {
+                    -- (\x:0.38)
+                }-- cycle (90:0.38);
+            \end{scope}
+
+            \draw[line width=6mm,YellowOrange!50,dashed,draw opacity=0.75] (0, 0.25) -- (0, 1.3);     
+            \draw[line width=6mm,YellowOrange!50,dashed,draw opacity=0.75] (0, -0.25) -- (0, -1.3);
+
+            % Pushbutton
+            \fill[rounded corners,black!15] (4, 4.75) rectangle (6, 5.25);
+            \fill[rounded corners,black!25] (4.5, 4.5) rectangle (5.5, 5.5);
+            \fill[black] (5, 5) circle (0.25);
+            \fill[white] (4.25, 5) circle (0.1);
+            \fill[white] (5.75, 5) circle (0.1);
+            \fill[YellowOrange] ([shift=(90:1mm)]4.25, 5) arc (90:270:1mm);
+            \fill[YellowOrange] ([shift=(90:1mm)]5.75, 5) arc (90:-90:1mm);
+        
+            % LED
+            \draw[very thick,black!50] (10, 2.25) -- (10, -1.75);    
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]10,0) arc (-60:240:2.5mm);
+
+            % Resistor (requires calc library)
+            \coordinate (R1) at (3, -5);
+            \draw[very thick, black!50] (R1) -- ($(R1) + (4, 0)$);
+            \draw[fill=Tan ] ($(R1) + (1.4, 0.25)$) rectangle ($(R1) + (2.6, -0.25)$);
+            \draw[fill=Yellow] ($(R1) + (1.6, 0.25)$) rectangle ($(R1) + (1.7, -0.25)$);
+            \draw[fill=Purple] ($(R1) + (1.8, 0.25)$) rectangle ($(R1) + (1.9, -0.25)$);
+            \draw[fill=Brown] ($(R1) + (2.0, 0.25)$) rectangle ($(R1) + (2.1, -0.25)$);
+            \draw[fill=Goldenrod] ($(R1) + (2.5, 0.25)$) rectangle ($(R1) + (2.4, -0.25)$);
+
+            \draw[->,>=triangle 45,blue,very thick] (5.1, -4) node[anchor=west] {pay attention to the colours!} to [in=120,out=150] (5, -4.6);
+        \end{tikzpicture}
+    \end{center}
+
+    \pagebreak
+
+    \subsection{Finding the Perfect Resistor}
+
+    \begin{minipage}[t]{0.45\boxwidth}\vspace{0pt}
+        {\bfseries Step 1:}
+
+        \bigskip
+        \begin{minipage}{0.5\boxwidth}
+            \begin{circuitikz}[scale=0.9]
+                \draw (0, 1) node[left] {+} to [battery] (0, 0);
+                \draw (0, 1) |- (1, 2) to [push button] (2, 2) -| (3, 1) to [full led] (3, 0) |- (2, -1) to [european resistor] (1, -1) -| (0, 0);
+                \node at (2.4, 0.5) {\textbf{\textcolor{Blue}{\small 2V}}};
+                \node at (1.5, -0.5) {\textbf{\textcolor{Blue}{\small ???}}};
+            \end{circuitikz}
+        \end{minipage}
+        \begin{minipage}{0.05\boxwidth}
+            \ 
+        \end{minipage}
+        \begin{minipage}{0.4\boxwidth}
+            \large
+            V$_{\text{R}} =  \text{V}_{\text{S}} -  \text{V}_{\text{L}}$ \\
+            V$_{\text{R}} = 9 - 2$\\
+            V$_{\text{R}} = 7$\\
+        \end{minipage}\\
+
+        \medskip
+        Determine the voltage drop across the resistor by using \emph{Kircchoff's Voltage Law.} Remember: the total of the forward voltages across all components should be equal to the source voltage. The LED's voltage comes from its datasheet.
+    \end{minipage}
+    \begin{minipage}[t]{0.05\boxwidth}\vspace{0pt}
+        \ 
+
+    \end{minipage}
+    \begin{minipage}[t]{0.45\boxwidth}\vspace{0pt}
+        {\bfseries Step 2:}
+
+        \bigskip
+        \begin{circuitikz}[scale=0.9]
+            \draw (0, 1) node[left] {+} to [battery] (0, 0);
+            \draw (0, 1) |- (1, 2) to [push button] (2, 2) -| (3, 1) to [full led] (3, 0) |- (2, -1) to [european resistor] (1, -1) -| (0, 0);
+            \node at (2.5, 0.5) {\textbf{\textcolor{Blue}{\small 2V}}};
+            \node at (1.5, -0.5) {\textbf{\textcolor{Blue}{\small 7V}}};
+            \draw[->,>=triangle 45,thick,red] (1.5, 0.5) +(180:0.75) arc (180:-170:0.75);
+            \node at (1.5, 0.5) {\textbf{\textcolor{Red}{\small ???}}};
+        \end{circuitikz}
+
+        \medskip
+        Determine the \emph{desired} current. This is the maximum forward current from the LEDs datasheet (20 mA or 0.02A).
+
+    \end{minipage}
+
+    \bigskip
+    \begin{minipage}[t]{0.45\boxwidth}\vspace{0pt}
+        {\bfseries Step 3:}
+
+        \bigskip
+        \begin{minipage}{0.5\boxwidth}
+            \begin{circuitikz}[scale=0.9]
+                \draw (0, 1) node[left] {+} to [battery] (0, 0);
+                \draw (0, 1) |- (1, 2) to [push button] (2, 2) -| (3, 1) to [full led] (3, 0) |- (2, -1) to [european resistor] (1, -1) -| (0, 0);
+                \node at (2.5, 0.5) {\textbf{\textcolor{Blue}{\small 2V}}};
+                \node at (1.5, -0.5) {\textbf{\textcolor{Blue}{\small 7V}}};
+                \draw[->,>=triangle 45,thick,red] (1.5, 0.5) +(180:0.75) arc (180:-170:0.75);
+                \node at (1.5, 0.5) {\textbf{\textcolor{Red}{\small 0.02A}}};
+            \end{circuitikz} 
+        \end{minipage}
+        \begin{minipage}{0.05\boxwidth}
+            \ 
+            
+        \end{minipage}
+        \begin{minipage}{0.4\boxwidth}
+            \large
+            R $= \dfrac{\text{V}}{\text{I}}$ \\
+
+            \smallskip
+            R $= \dfrac{7}{0.02}$ \\
+
+            \smallskip
+            R $= 345$
+        \end{minipage}\\
+
+        \bigskip\medskip
+        Apply \emph{Ohm's Law} to calculate the resistance required across the resistor in the circuit.
+    \end{minipage}
+    \begin{minipage}[t]{0.05\boxwidth}\vspace{0pt}
+        \ 
+
+    \end{minipage}
+    \begin{minipage}[t]{0.45\boxwidth}\vspace{0pt}
+        {\bfseries Step 4:}
+
+        \bigskip
+        \begin{circuitikz}[scale=0.9]
+            \draw (0, 1) node[left] {+} to [battery] (0, 0);
+            \draw (0, 1) |- (1, 2) to [push button] (2, 2) -| (3, 1) to [full led] (3, 0) |- (2, -1) to [european resistor] (1, -1) -| (0, 0);
+            %\node at (2.25, 0.5) {\textbf{\textcolor{Blue}{2V}}};
+            %\node at (1.5, -0.5) {\textbf{\textcolor{Blue}{???}}};
+            \node at (1.5, -1.5) {\textbf{\textcolor{Green}{345 $\Omega$}}};
+        \end{circuitikz}
+
+        \medskip
+        Typical circuit diagrams will include the resistor value as a label on each resistor.
+    \end{minipage}
+
+    
     \section{Reflections}
 \end{document}
