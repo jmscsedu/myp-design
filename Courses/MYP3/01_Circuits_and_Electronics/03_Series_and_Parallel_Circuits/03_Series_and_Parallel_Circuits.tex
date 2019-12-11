@@ -70,7 +70,11 @@
     \pagebreak
 
     \section{Technical Background}
-    
+    So far, all of the circuits we have built have revolved around a single ``loop'' of electric current. These simple circuits are called \emph{series circuits}.
+
+    \medskip
+    This lesson focuses on the difference between building a circuit in \emph{series} and \emph{parallel}, as defined below.
+
     \subsection{Series Circuits}
 
     \begin{minipage}{0.26\boxwidth}
@@ -166,41 +170,62 @@
         This is a very simple formula, but can be applied in a variety of ways to create circuits with various target resistances.\\\hline
     \end{tabularx}
 
+    \pagebreak
     \subsection{Resistors in Parallel}
+    Because parallel circuits \emph{divide current}, it becomes a bit harder to determine total resistance in the type of circuits seen below.
 
-    \begin{circuitikz}
-        \draw (0, 1) node[left,yshift=-5] {+} to [battery1] (0, 0);
-        \node at (-0.75, 0.5) {3V};
-        \draw (0, 1) |- (1.75, 2) -- (1.75, 1) to [european resistor,label=\small$330\ \Omega$] (1.75, 0) -- (1.75, -1) -| (0, 0);
-        \draw (1, 2) -| (3.5, 1) to [european resistor,label=\small$330\ \Omega$] (3.5, 0) -- (3.5, -1) -| (0, 0);
-        \draw (3.5, 2) -| (5.25, 1) to [european resistor,label=\small$330\ \Omega$] (5.25, 0) -- (5.25, -1) -| (0, 0);
-    \end{circuitikz}
+    \subsubsection*{Example \#1}
+    Rarely, all resistors in the circuit will have the same value as in this first example. In that case, all you need to do is divide the resistor value by the number of parallel paths in the circuit.
 
     \bigskip
-    \begin{circuitikz}
-        \draw (0, 1) node[left,yshift=-5] {+} to [battery1] (0, 0);
-        \node at (-0.75, 0.5) {3V};
-        \draw (0, 1) |- (1.75, 2) -- (1.75, 1) to [european resistor,label=\small$220\ \Omega$] (1.75, 0) -- (1.75, -1) -| (0, 0);
-        \draw (1, 2) -| (3.5, 1) to [european resistor,label=\small$470\ \Omega$] (3.5, 0) -- (3.5, -1) -| (0, 0);
-        \draw (3.5, 2) -| (5.25, 1) to [european resistor,label=\small$1\ \text{k}\Omega$] (5.25, 0) -- (5.25, -1) -| (0, 0);
-    \end{circuitikz}
+    \begin{minipage}{0.45\boxwidth}
+        \begin{circuitikz}
+            \draw (0, 1) node[left,yshift=-5] {+} to [battery1] (0, 0);
+            \node at (-0.75, 0.5) {3V};
+            \draw (0, 1) |- (1.75, 2) -- (1.75, 1) to [european resistor,label=\small$330\ \Omega$] (1.75, 0) -- (1.75, -1) -| (0, 0);
+            \draw (1, 2) -| (3.5, 1) to [european resistor,label=\small$330\ \Omega$] (3.5, 0) -- (3.5, -1) -| (0, 0);
+            \draw (3.5, 2) -| (5.25, 1) to [european resistor,label=\small$330\ \Omega$] (5.25, 0) -- (5.25, -1) -| (0, 0);
+        \end{circuitikz}
+    \end{minipage}
+    \begin{minipage}{0.375\boxwidth}
+        \[\begin{aligned}
+            \text{R}_{\text{total}} &= \frac{\text{R}}{3} \\[8pt]
+            &= \dfrac{330}{3} \\[8pt]
+            &= 110\ \Omega
+        \end{aligned}\]
+    \end{minipage}
 
-    To understand what is going on, let's make a small chart of values for the current passing through each resistor. Remember: in a parallel circuit such as this one the voltage across all components remains the same. Keep in mind that \emph{Ohm's Law} gives us a formula for current: $I = \frac{V}{R}$.
+    \subsubsection*{Example \#2}
+    The result is less obvious for more complex parallel circuits. To understand what is going on, let's make a small chart of values for the current passing through each resistor. Remember: in a parallel circuit such as this one the voltage across all components remains the same. Keep in mind that \emph{Ohm's Law} gives us a formula for current: $I = \frac{V}{R}$.
 
-    \begin{center}
-        \newcolumntype{C}{>{\centering\arraybackslash}X}
-        \renewcommand\arraystretch{1.5}
-        \begin{tabularx}{0.5\boxwidth}{| c | C | C | C |}
-            \hline
-            \cellcolor{black!25} & \textbf{R$_1$} & \textbf{R$_2$} & \textbf{R$_3$}\\\hline
-            \textbf{V} & 3 & 3 & 3\\\hline
-            \textbf{I} & $\frac{3}{220} \approx 0.0136$ & $\frac{3}{470} \approx 0.0064$ & $\frac{3}{1000} = 0.0030$ \\\hline
-            \textbf{R} & 220 & 470 & 1000\\\hline
-        \end{tabularx}
-    \end{center}
+    \bigskip
+    \begin{minipage}{0.45\boxwidth}
+        \begin{circuitikz}
+            \draw (0, 1) node[left,yshift=-5] {+} to [battery1] (0, 0);
+            \node at (-0.75, 0.5) {3V};
+            \draw (0, 1) |- (1.75, 2) -- (1.75, 1) to [european resistor,label=\small$220\ \Omega$] (1.75, 0) -- (1.75, -1) -| (0, 0);
+            \draw (1, 2) -| (3.5, 1) to [european resistor,label=\small$470\ \Omega$] (3.5, 0) -- (3.5, -1) -| (0, 0);
+            \draw (3.5, 2) -| (5.25, 1) to [european resistor,label=\small$1\ \text{k}\Omega$] (5.25, 0) -- (5.25, -1) -| (0, 0);
+        \end{circuitikz}
+    \end{minipage}
+    \begin{minipage}{0.5\boxwidth}
+        \begin{center}
+            \newcolumntype{C}{>{\centering\arraybackslash}X}
+            \renewcommand\arraystretch{1.5}
+            \begin{tabularx}{\boxwidth}{| c | C | C | C |}
+                \hline
+                \cellcolor{black!25} & \textbf{R$_1$} & \textbf{R$_2$} & \textbf{R$_3$}\\\hline
+                \textbf{V} & 3 & 3 & 3\\\hline
+                \textbf{R} & 220 & 470 & 1000\\\hline    
+                \textbf{I} & $\frac{3}{220} \approx 0.0136$ & $\frac{3}{470} \approx 0.0064$ & $\frac{3}{1000} = 0.0030$ \\\hline
+            \end{tabularx}
+        \end{center}
+    \end{minipage}
 
+    \bigskip
     From the above table, we can see that the \emph{total current} in the circuit is approximately $0.023$ amps (23 mA). Once again using \emph{Ohm's Law} $\left(R = \frac{V}{I}\right)$ gives us a \emph{total resistance} of: $R = \frac{3}{0.023} \approx 130.435\ \Omega$.
 
+    \bigskip
     \renewcommand\arraystretch{1}
     \begin{tabularx}{\boxwidth}{| X |}
         \hline
