@@ -187,7 +187,7 @@
             \draw (3.5, 2) -| (5.25, 1) to [european resistor,label=\small$330\ \Omega$] (5.25, 0) -- (5.25, -1) -| (0, 0);
         \end{circuitikz}
     \end{minipage}
-    \begin{minipage}{0.375\boxwidth}
+    \begin{minipage}{0.2\boxwidth}
         \[\begin{aligned}
             \text{R}_{\text{total}} &= \frac{\text{R}}{3} \\[8pt]
             &= \dfrac{330}{3} \\[8pt]
@@ -199,7 +199,7 @@
     The result is less obvious for more complex parallel circuits. To understand what is going on, let's make a small chart of values for the current passing through each resistor. Remember: in a parallel circuit such as this one the voltage across all components remains the same. Keep in mind that \emph{Ohm's Law} gives us a formula for current: $I = \frac{V}{R}$.
 
     \bigskip
-    \begin{minipage}{0.45\boxwidth}
+    \begin{minipage}{0.475\boxwidth}
         \begin{circuitikz}
             \draw (0, 1) node[left,yshift=-5] {+} to [battery1] (0, 0);
             \node at (-0.75, 0.5) {3V};
@@ -235,10 +235,25 @@
         Although it looks complicated, the end result of this formula is identical to making a chart of values similar to what we did previously.\\\hline
     \end{tabularx}
    
+    \bigskip
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \ATLHeader{Communication Skills} \\\hline
+        \ATLSkill{...use and interpret a range of discipline-specific terms and symbols...} \\\hline
+        \QuestionBox{Apply the formula above to calculate the total resistance of a parallel circuit using the given resistor values ($220\ \Omega$, $470\ \Omega$, and $1000\ \Omega$).} \\\hline
+        \ \\[1.75cm]\hline
+        \ATLSkill{...make inferences and draw conclusions...}\\\hline
+        \QuestionBox{Explain why using the formula did \emph{not} yield the exact same value as in our example.}\\\hline
+        \ \\[1.75cm]\hline
+    \end{tabularx}
+   
     \pagebreak
 
     \section{Developing Technical Skills}
-    
+    % parallel circuit two LEDs
+    % use of multimeter
+    % series resistors + multimeter
+    % parallel circuit for resistors + multimeter
     \pagebreak
     
     \section{Reflections}
