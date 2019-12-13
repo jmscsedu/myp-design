@@ -1,7 +1,11 @@
 \include{Includes/Guided_Notes_Preamble}
 
 \usepackage{circuitikz}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows,calc,shapes.misc}
+
+\tikzset{cross/.style={cross out, draw, 
+         minimum size=2*(#1-\pgflinewidth), 
+         inner sep=0pt, outer sep=0pt}}
 
 \def\CourseName{MYP3}
 
@@ -250,11 +254,158 @@
     \pagebreak
 
     \section{Developing Technical Skills}
+
+    \subsubsection*{Circuit \#7: Building a Parallel Circuit}
     % parallel circuit two LEDs
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[line width=6mm,YellowOrange] (0, 0) -- (0, 5) -- (10, 5) -- (10, 1);
+            \draw[line width=6mm,YellowOrange] (10, -1) -- (10, -5) -- (0, -5) -- (0, 0);
+
+            \draw[line width=6mm,YellowOrange] (5, 5) -- (5, 1);
+            \draw[line width=6mm,YellowOrange] (5, -1) -- (5, -5);
+
+            \fill[black!25] (0, 0) circle (10mm);            
+            \draw[line width=6mm, dashed,YellowOrange!50,draw opacity=0.5] (0, -0.25) -- (0, -1);
+            \draw[line width=6mm,YellowOrange] (0, 0.25) -- (0, 1);
+            \node[align=center] at (0, 0) {CR2032};
+
+            \draw[very thick,black!50] (5, 2.25) -- (5, -1.75);
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]5,0) arc (-60:240:2.5mm);
+
+            \draw[very thick,black!50] (10, 2.25) -- (10, -1.75);
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]10,0) arc (-60:240:2.5mm);
+
+            \draw[->,>=triangle 45,very thick,red] (1.4, 2) node[right] {A} -- (0.4, 2);
+            \draw[->,>=triangle 45,very thick,black] (1.4, -2) node[right] {A} -- (0.4, -2);
+
+            \draw[->,>=triangle 45,very thick,red] (3.6, 3.5) node[left] {B} --(4.6, 3.5);
+            \draw[->,>=triangle 45,very thick,black] (3.6, -3.5) node[left] {B} -- (4.6, -3.5);
+
+            \draw[->,>=triangle 45,very thick,red] (8.6, 3.5) node[left] {C} --(9.6, 3.5);
+            \draw[->,>=triangle 45,very thick,black] (8.6, -3.5) node[left] {C} -- (9.6, -3.5);            
+        \end{tikzpicture}
+    \end{center}
+
     % use of multimeter
+    \subsubsection*{Using a Multimeter}
+
     % series resistors + multimeter
+    \subsubsection*{Circuit \#8: Resistors in Series}
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[line width=6mm,YellowOrange] (0, 0) |- (4, 5);
+            \draw[line width=6mm,YellowOrange] (6, 5) -| (10, 1);
+            \draw[line width=6mm,YellowOrange] (10, -1) |- (6, -5);
+            \draw[line width=6mm,YellowOrange] (4, -5) -- (0, -5) -- (0, 0);
+
+            \fill[black!25] (0, 0) circle (10mm);            
+            \draw[line width=6mm, dashed,YellowOrange!50,draw opacity=0.5] (0, -0.25) -- (0, -1);
+            \draw[line width=6mm,YellowOrange] (0, 0.25) -- (0, 1);
+            \node[align=center] at (0, 0) {CR2032};
+            
+            \draw[->,>=triangle 45,very thick,red] (1.4, 2) node[right] {A} -- (0.4, 2);
+            \draw[->,>=triangle 45,very thick,black] (1.4, -2) node[right] {A} -- (0.4, -2);
+            
+            \draw[->,>=triangle 45,very thick,red] (2, 3.6) node[below] {B, C} -- (2, 4.6);
+            \draw[->,>=triangle 45,very thick,black] (8, 3.6) node[below] {B} -- (8, 4.6);
+
+            \draw[->,>=triangle 45,very thick,black] (8.6, -3.5) node[left] {C} -- (9.6, -3.5);
+
+            \coordinate (R1) at (10, -2);
+            %220 Ohms
+            \draw[very thick, black!50] (R1) -- ($(R1) + (0, 4)$);
+            \draw[fill=Tan] ($(R1) + (0.25, 1.4)$) rectangle ($(R1) + (-0.25, 2.6)$);
+            \draw[fill=Red] ($(R1) + (0.25, 2.4)$) rectangle ($(R1) + (-0.25, 2.3)$);
+            \draw[fill=Red] ($(R1) + (0.25, 2.2)$) rectangle ($(R1) + (-0.25, 2.1)$);
+            \draw[fill=Brown] ($(R1) + (0.25, 2.0)$) rectangle ($(R1) + (-0.25, 1.9)$);
+            \draw[fill=Goldenrod] ($(R1) + (0.25, 1.6)$) rectangle ($(R1) + (-0.25, 1.5)$);
+
+            \coordinate (R1) at (3, 5);
+            %470 Ohms
+            \draw[very thick, black!50] (R1) -- ($(R1) + (4, 0)$);
+            \draw[fill=Tan ] ($(R1) + (1.4, 0.25)$) rectangle ($(R1) + (2.6, -0.25)$);
+            \draw[fill=Yellow] ($(R1) + (1.6, 0.25)$) rectangle ($(R1) + (1.7, -0.25)$);
+            \draw[fill=Purple] ($(R1) + (1.8, 0.25)$) rectangle ($(R1) + (1.9, -0.25)$);
+            \draw[fill=Brown] ($(R1) + (2.0, 0.25)$) rectangle ($(R1) + (2.1, -0.25)$);
+            \draw[fill=Goldenrod] ($(R1) + (2.5, 0.25)$) rectangle ($(R1) + (2.4, -0.25)$);
+
+            \coordinate (R1) at (3, -5);
+            %330 Ohms
+            \draw[very thick, black!50] (R1) -- ($(R1) + (4, 0)$);
+            \draw[fill=Tan ] ($(R1) + (1.4, 0.25)$) rectangle ($(R1) + (2.6, -0.25)$);
+            \draw[fill=Orange] ($(R1) + (1.6, 0.25)$) rectangle ($(R1) + (1.7, -0.25)$);
+            \draw[fill=Orange] ($(R1) + (1.8, 0.25)$) rectangle ($(R1) + (1.9, -0.25)$);
+            \draw[fill=Brown] ($(R1) + (2.0, 0.25)$) rectangle ($(R1) + (2.1, -0.25)$);
+            \draw[fill=Goldenrod] ($(R1) + (2.5, 0.25)$) rectangle ($(R1) + (2.4, -0.25)$);
+
+        \end{tikzpicture}
+    \end{center}
+
     % parallel circuit for resistors + multimeter
+    \subsubsection*{Circuit \#9: Resistors in Parallel}
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[line width=6mm,YellowOrange] (0, 0) -- (0, 5) -- (10, 5) -- (10, 1);
+            \draw[line width=6mm,YellowOrange] (10, -1) -- (10, -5) -- (0, -5) -- (0, 0);
+            \draw[line width=6mm,YellowOrange] (10, 5) -- (15, 5) -- (15, 1);
+
+            \draw[line width=6mm,YellowOrange] (5, 5) -- (5, 1);
+            \draw[line width=6mm,YellowOrange] (5, -1) -- (5, -5);
+            \draw[line width=6mm,YellowOrange] (15, -1) -- (15, -5) -- (10, -5);
+
+            \fill[black!25] (0, 0) circle (10mm);            
+            \draw[line width=6mm, dashed,YellowOrange!50,draw opacity=0.5] (0, -0.25) -- (0, -1);
+            \draw[line width=6mm,YellowOrange] (0, 0.25) -- (0, 1);
+            \node[align=center] at (0, 0) {CR2032};
+
+            \draw[->,>=triangle 45,very thick,red] (1.4, 2) node[right] {A} -- (0.4, 2);
+            \draw[->,>=triangle 45,very thick,black] (1.4, -2) node[right] {A} -- (0.4, -2);
+
+            \draw[->,>=triangle 45,very thick,red] (3.6, 3.5) node[left] {B} --(4.6, 3.5);
+            \draw[->,>=triangle 45,very thick,black] (3.6, -3.5) node[left] {B} -- (4.6, -3.5);
+
+            \draw[->,>=triangle 45,very thick,red] (8.6, 3.5) node[left] {C} --(9.6, 3.5);
+            \draw[->,>=triangle 45,very thick,black] (8.6, -3.5) node[left] {C} -- (9.6, -3.5);            
+
+            \draw[->,>=triangle 45,very thick,red] (13.6, 3.5) node[left] {D} --(14.6, 3.5);
+            \draw[->,>=triangle 45,very thick,black] (13.6, -3.5) node[left] {D} -- (14.6, -3.5);           
+            
+            \coordinate (R1) at (5, -2);
+            %220 Ohms
+            \draw[very thick, black!50] (R1) -- ($(R1) + (0, 4)$);
+            \draw[fill=Tan] ($(R1) + (0.25, 1.4)$) rectangle ($(R1) + (-0.25, 2.6)$);
+            \draw[fill=Red] ($(R1) + (0.25, 2.4)$) rectangle ($(R1) + (-0.25, 2.3)$);
+            \draw[fill=Red] ($(R1) + (0.25, 2.2)$) rectangle ($(R1) + (-0.25, 2.1)$);
+            \draw[fill=Brown] ($(R1) + (0.25, 2.0)$) rectangle ($(R1) + (-0.25, 1.9)$);
+            \draw[fill=Goldenrod] ($(R1) + (0.25, 1.6)$) rectangle ($(R1) + (-0.25, 1.5)$);
+
+            \coordinate (R1) at (10, -2);
+            %330 Ohms
+            \draw[very thick, black!50] (R1) -- ($(R1) + (0, 4)$);
+            \draw[fill=Tan] ($(R1) + (0.25, 1.4)$) rectangle ($(R1) + (-0.25, 2.6)$);
+            \draw[fill=Orange] ($(R1) + (0.25, 2.4)$) rectangle ($(R1) + (-0.25, 2.3)$);
+            \draw[fill=Orange] ($(R1) + (0.25, 2.2)$) rectangle ($(R1) + (-0.25, 2.1)$);
+            \draw[fill=Brown] ($(R1) + (0.25, 2.0)$) rectangle ($(R1) + (-0.25, 1.9)$);
+            \draw[fill=Goldenrod] ($(R1) + (0.25, 1.6)$) rectangle ($(R1) + (-0.25, 1.5)$);
+
+            \coordinate (R1) at (15, -2);
+            %1k Ohms
+            \draw[very thick, black!50] (R1) -- ($(R1) + (0, 4)$);
+            \draw[fill=Tan] ($(R1) + (0.25, 1.4)$) rectangle ($(R1) + (-0.25, 2.6)$);
+            \draw[fill=Red] ($(R1) + (0.25, 2.4)$) rectangle ($(R1) + (-0.25, 2.3)$);
+            \draw[fill=Black] ($(R1) + (0.25, 2.2)$) rectangle ($(R1) + (-0.25, 2.1)$);
+            \draw[fill=Red] ($(R1) + (0.25, 2.0)$) rectangle ($(R1) + (-0.25, 1.9)$);
+            \draw[fill=Goldenrod] ($(R1) + (0.25, 1.6)$) rectangle ($(R1) + (-0.25, 1.5)$);
+        \end{tikzpicture}
+    \end{center}   
     \pagebreak
-    
+ 
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \FormativeHeader \\\hline
+        \QuestionBox{} \\\hline
+    \end{tabularx}
+
     \section{Reflections}
 \end{document}
