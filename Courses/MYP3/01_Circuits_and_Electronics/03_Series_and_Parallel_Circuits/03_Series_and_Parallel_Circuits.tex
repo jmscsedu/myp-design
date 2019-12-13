@@ -404,8 +404,24 @@
     \begin{tabularx}{\boxwidth}{| X | }
         \hline
         \FormativeHeader \\\hline
-        \QuestionBox{} \\\hline
+        \QuestionBox{Using only three resistors from your kit, what is the closest a parallel circuit can get to $100\ \Omega$ total resistance? What resistors get you that close?}\\\hline
+        \ \\[1.5cm]\hline
+        \QuestionBox{A \emph{combined} circuit has components placed in series and in parallel. The following circuit diagram is a simple example of a combined circuit.} \\
+        \cellcolor{QuestionHeaderBG}\hfill 
+        \begin{circuitikz}
+            \draw (0, 1) node[left] {+} to [battery1,l_,label=3V] (0, 0);
+            \draw (0, 1) |- (1, 2) to [european resistor,label=$220 \Omega$] (2, 2) -| (3, 1.5) -| (2.5, 1) to [european resistor,l_,label=$1\ \text{k}\Omega$] (2.5, 0) |- (3, -0.5);
+            \draw (3, 1.5) -| (3.5, 1) to [european resistor,label=$1\ \text{k}\Omega$] (3.5, 0) |- (3, -0.5);
+            \draw (3, -0.5) |- (0, -1) -- (0, 0);
+        \end{circuitikz}
+        \hfill\, \\
+        \cellcolor{QuestionHeaderBG}In such a circuit, the parallel resistors could be counted as if they were a single resistor in series with the rest of the circuit, but with a value calculated based on the resistors in parallel formula given in the technical background.\\[1cm]
+        \cellcolor{QuestionHeaderBG}Calculate the total resistance in the circuit example given above.\\\hline
+        \ \\[1.5cm]\hline
+        \QuestionBox{Create a paper circuit below of the above circuit and test your calculation using a multimeter.}\\\hline
+        \ \\[12cm]\hline
     \end{tabularx}
 
+    \pagebreak
     \section{Reflections}
 \end{document}
