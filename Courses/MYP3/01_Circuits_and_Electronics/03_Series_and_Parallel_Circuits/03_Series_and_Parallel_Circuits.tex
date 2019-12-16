@@ -1,6 +1,7 @@
 \include{Includes/Guided_Notes_Preamble}
 
-\usepackage{circuitikz,subcaption}
+\usepackage{circuitikz,subcaption,tikzsymbols}
+
 \usetikzlibrary{arrows,calc,shapes.misc}
 
 \tikzset{cross/.style={cross out, draw, 
@@ -16,54 +17,6 @@
 \def\UnitTitle{Circuits \& Electronics}
 
 \begin{document}
-    % Core Components (Remove when no longer required!)
-    \thispagestyle{empty}
-    \begin{tabularx}{\boxwidth}{| X | }
-        \hline
-        \ATLHeader{} \\\hline
-        \ATLSkill{} \\\hline
-        \QuestionBox{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \DefinitionBoxHeader \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \GlobalContextHeader{}\\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \KeyConceptHeader{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \RelatedConceptHeader{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \SolutionHeader{SOLUTION} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X | }
-        \hline
-        \FormativeHeader \\\hline
-        \QuestionBox{} \\\hline
-    \end{tabularx}
-
-    \begin{tabularx}{\boxwidth}{| X |}
-        \hline
-        \SummativeHeader \\\hline
-        \QuestionBox{}\\\hline
-    \end{tabularx}
-
-    \newpage
-
     \begin{center}
         \huge\bfseries
         \LessonTitle
@@ -73,6 +26,18 @@
     \begin{tabularx}{\boxwidth}{| X |}
         \hline
         \GlobalContextHeader{Orientation in Space \& Time}\\\hline
+        \QuestionBox{There are numerous cultures around the world, such as the famous American Amish, which shun the adoption of technology for various reasons. What do you think motivates these people to avoid embracing modern technology, espeically the use of electricity?}\\\hline
+        \ \\[5cm]\hline
+        \QuestionBox{There are also groups of people, such as the Sentinelese in the Bay of Bengal, who reject contact with the outside world. This means that they have never had significant exposure to the use of electricity. What do you think would happen to the culture of these people if they were to be exposed to and adopted modern technology?}\\\hline
+        \ \\[5cm]\hline
+    \end{tabularx}
+
+    \smallskip
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \RelatedConceptHeader{Invention}\\\hline
+        \QuestionBox{Many of the great inventions in human history have revolved around the reduction of manual labour. Why do you think the reduction of \emph{work} for humans is a major motivation for the invention of new technology?}\\\hline
+        \ \\[5cm]\hline
     \end{tabularx}
 
     \pagebreak
@@ -577,4 +542,25 @@
 
     \pagebreak
     \section{Reflections}
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills}\\\hline
+        \ATLSkill{...make inferences and draw conclusions...}\\\hline
+        \QuestionBox{In what ways does your own understanding of a topic benefit from first making inferences about what is happening before verification through experiment of study?}\\\hline
+        \ \\[3.5cm]\hline
+        \ATLSkill{...use and interpret a range of discipline-specific terms and symbols...}\\\hline
+        \QuestionBox{If you open up any electronic device, it is unlikely that the circuits are arranged as neatly as they are in a circuit diagram or your paper circuits. This is because the paper circuits have a lot of wasted space which makes it difficult to fit into small components or devices with odd-angled surfaces. Despite this, it is very common for circuits to be described in circuit diagrams similiar to the ones you've seen so far. Why do yo think showing components in a diagram different from how they will be physically arranged remains important for analyzing circuits?}\\\hline
+        \ \\[3.5cm]\hline
+    \end{tabularx}
+
+    \bigskip
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \QuestionBox{What aspect of this lesson was the most challenging for you? How did you overcome that challenge?}\\\hline
+        \ \\[3.5cm]\hline
+        \QuestionBox{Select the option which best reflects how confident you are in applying what you have learend in this lesson.}\\\hline
+        \, \hfill \Sadey[5][orange] \hfill \Neutrey[5][gray] \hfill \Smiley[5][cyan] \hfill \,\\\hline
+        \QuestionBox{What additional questions do you still have about this lesson's content?}\\\hline
+        \ \\[3.5cm]\hline
+    \end{tabularx}    
 \end{document}
