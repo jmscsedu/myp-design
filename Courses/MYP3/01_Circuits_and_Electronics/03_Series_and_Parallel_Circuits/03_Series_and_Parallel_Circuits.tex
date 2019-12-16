@@ -1,6 +1,6 @@
 \include{Includes/Guided_Notes_Preamble}
 
-\usepackage{circuitikz}
+\usepackage{circuitikz,subcaption}
 \usetikzlibrary{arrows,calc,shapes.misc}
 
 \tikzset{cross/.style={cross out, draw, 
@@ -70,9 +70,12 @@
     \end{center}
 
     \section{Before You Begin}
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \GlobalContextHeader{Orientation in Space \& Time}\\\hline
+    \end{tabularx}
 
     \pagebreak
-
     \section{Technical Background}
     So far, all of the circuits we have built have revolved around a single ``loop'' of electric current. These simple circuits are called \emph{series circuits}.
 
@@ -256,7 +259,19 @@
     \section{Developing Technical Skills}
 
     \subsubsection*{Circuit \#7: Building a Parallel Circuit}
-    % parallel circuit two LEDs
+    This circuit emulates the simple example of a parallel circuit given in the technical background.
+
+    \subsubsection*{You Will Need}
+    \begin{itemize}[noitemsep]
+        \item[(1)] CR2032 Battery
+        \item[(2)] LEDs
+        \item[(1)] Roll of Copper Tape
+        \item[(1)] Roll of Cellophane Tape   
+    \end{itemize}
+
+    \subsubsection*{Directions}
+    Create the following paper circuit, ignoring the different arrows for now. Those arrows will be used in the next activity.
+
     \begin{center}
         \begin{tikzpicture}
             \draw[line width=6mm,YellowOrange] (0, 0) -- (0, 5) -- (10, 5) -- (10, 1);
@@ -287,12 +302,87 @@
         \end{tikzpicture}
     \end{center}
 
+    \bigskip\bigskip
+    \begin{tabularx}{\boxwidth}{| X | }
+        \hline
+        \ATLHeader{Communication Skills} \\\hline
+        \ATLSkill{...make inferences and draw conclusions...} \\\hline
+        \QuestionBox{Why does placing the LEDs in parallel allow them to both light compared to the series circuit for two LEDs you created in Lesson \#1?} \\\hline
+        \ \\[4cm]\hline
+    \end{tabularx}
+
     % use of multimeter
     \subsubsection*{Using a Multimeter}
+    A \emph{multimeter} is a special device that allows you to take different measurements, such as voltage, resistance, and current, in a circuit. A few examples of multimeters are shown below.
 
+    % images of multimeters
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.25\boxwidth}
+            \centering
+            \includegraphics[height=4cm]{Extras/multimeter1}
+        \end{subfigure}
+        \begin{subfigure}{0.25\boxwidth}
+            \centering
+            \includegraphics[height=4cm]{Extras/multimeter2}
+        \end{subfigure}
+        \begin{subfigure}{0.25\boxwidth}
+            \centering
+            \includegraphics[height=4cm]{Extras/multimeter3}
+        \end{subfigure}
+        \caption*{\scriptsize Images courtesy element14.com.}
+    \end{figure}
+
+
+    While the complexity and capabilities of multimeters varies greatly, any multimeter available on the market today should be able to measure anything you'll need for this course. In particular, your multimeter should measure: DC Voltage, Resistance, Current (<10A).
+
+    \medskip
+    Because operating a multimeter can be highly dependent on the individual device, allow your teacher to demonstrate the use of the multimeter you have available to you before answering the following questions.
+
+    \bigskip
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \QuestionBox{Complete the following table of values by placing the appropriate probes at each labeled location in Circuit \#7.}\\\hline
+    \end{tabularx}
+
+    \begin{center}
+        \newcolumntype{C}{>{\centering\arraybackslash}X}
+        \begin{tabularx}{0.5\boxwidth}{| >{\bfseries\centering\arraybackslash}p{0.2cm} | C | C | C |}
+            \hline
+            \cellcolor{black!25} & \textbf{A} & \textbf{B} & \textbf{C} \\\hline
+            \raisebox{-0.5cm}{V} & & & \\[1cm]\hline
+            \raisebox{-0.5cm}{R} & & & \\[1cm]\hline
+            \raisebox{-0.5cm}{I} & & & \\[1cm]\hline
+        \end{tabularx}
+    \end{center}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills}\\\hline
+        \ATLSkill{...make inferences and draw conclusions...}\\\hline
+        \QuestionBox{Do the values match your expectations for a parallel circuit? Explain why or why not.}\\\hline
+        \ \\[6cm]\hline
+    \end{tabularx}
+
+
+    \pagebreak
     % series resistors + multimeter
     \subsubsection*{Circuit \#8: Resistors in Series}
-    \begin{center}
+    The circuit below will allow you to explore the interaction between voltage, resistance, and current in a series circuit similar to the one shown in the technical background section.
+
+    \subsubsection*{You Will Need}
+    \begin{itemize}[noitemsep]
+        \item[(1)] CR2032 Battery
+        \item[(3)] Resistors ($220\ \Omega$, $330\ \Omega$, $470\ \Omega$)
+        \item[(1)] Roll of Copper Tape
+        \item[(1)] Roll of Cellophane Tape   
+    \end{itemize}
+    
+    \subsubsection*{Directions}
+    Create the following paper circuit. Then, complete the chart of voltage, resistance, and current using the multimeter at the indicated points.
+
+    \bigskip
+    \begin{minipage}[t]{0.7\boxwidth}\vspace*{0pt}
         \begin{tikzpicture}
             \draw[line width=6mm,YellowOrange] (0, 0) |- (4, 5);
             \draw[line width=6mm,YellowOrange] (6, 5) -| (10, 1);
@@ -340,10 +430,47 @@
             \draw[fill=Goldenrod] ($(R1) + (2.5, 0.25)$) rectangle ($(R1) + (2.4, -0.25)$);
 
         \end{tikzpicture}
-    \end{center}
+    \end{minipage}
+    \begin{minipage}{0.025\boxwidth}\vspace*{0pt}
+        \
+
+    \end{minipage} 
+    \begin{minipage}[t]{0.25\boxwidth}\vspace*{0pt}
+        \newcolumntype{C}{>{\centering\arraybackslash}X}
+        \begin{tabularx}{\boxwidth}{| >{\bfseries\centering\arraybackslash}p{0.2cm} | C | C | C |}
+            \hline
+            \cellcolor{black!25} & \textbf{A} & \textbf{B} & \textbf{C} \\\hline
+            \raisebox{-0.5cm}{V} & & & \\[1cm]\hline
+            \raisebox{-0.5cm}{R} & & & \\[1cm]\hline
+            \raisebox{-0.5cm}{I} & & & \\[1cm]\hline
+        \end{tabularx}
+    \end{minipage}
+    
+    \vspace{1cm}
+
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills}\\\hline
+        \ATLSkill{...make inferences and draw conclusions...}\\\hline
+        \QuestionBox{Are your measurements for \emph{current} what you expected based on where measurements were taken? Explain why the current behaves like this in a series circuit.}\\\hline
+        \ \\[4cm]\hline
+    \end{tabularx}
 
     % parallel circuit for resistors + multimeter
     \subsubsection*{Circuit \#9: Resistors in Parallel}
+    The circuit below will allow you to explore the interaction between voltage, resistance, and current in a parallel circuit similar to the one shown in the technical background section.
+
+    \subsubsection*{You Will Need}
+    \begin{itemize}[noitemsep]
+        \item[(1)] CR2032 Battery
+        \item[(3)] Resistors ($220\ \Omega$, $330\ \Omega$, $1\ \text{k}\Omega$)
+        \item[(1)] Roll of Copper Tape
+        \item[(1)] Roll of Cellophane Tape   
+    \end{itemize}
+    
+    \subsubsection*{Directions}
+    Create the following paper circuit. Then, complete the chart of voltage, resistance, and current using the multimeter at the indicated points.
+
     \begin{center}
         \begin{tikzpicture}
             \draw[line width=6mm,YellowOrange] (0, 0) -- (0, 5) -- (10, 5) -- (10, 1);
@@ -393,12 +520,38 @@
             %1k Ohms
             \draw[very thick, black!50] (R1) -- ($(R1) + (0, 4)$);
             \draw[fill=Tan] ($(R1) + (0.25, 1.4)$) rectangle ($(R1) + (-0.25, 2.6)$);
-            \draw[fill=Red] ($(R1) + (0.25, 2.4)$) rectangle ($(R1) + (-0.25, 2.3)$);
+            \draw[fill=Brown] ($(R1) + (0.25, 2.4)$) rectangle ($(R1) + (-0.25, 2.3)$);
             \draw[fill=Black] ($(R1) + (0.25, 2.2)$) rectangle ($(R1) + (-0.25, 2.1)$);
             \draw[fill=Red] ($(R1) + (0.25, 2.0)$) rectangle ($(R1) + (-0.25, 1.9)$);
             \draw[fill=Goldenrod] ($(R1) + (0.25, 1.6)$) rectangle ($(R1) + (-0.25, 1.5)$);
         \end{tikzpicture}
     \end{center}   
+    
+    \begin{minipage}[t]{0.35\boxwidth}\vspace*{0pt}
+        \begin{center}
+            \newcolumntype{C}{>{\centering\arraybackslash}X}
+            \begin{tabularx}{\boxwidth}{| >{\bfseries\centering\arraybackslash}p{0.2cm} | C | C | C | C |}
+                \hline
+                \cellcolor{black!25} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D}\\\hline
+                \raisebox{-0.5cm}{V} & & & & \\[1cm]\hline
+                \raisebox{-0.5cm}{R} & & & & \\[1cm]\hline
+                \raisebox{-0.5cm}{I} & & & & \\[1cm]\hline
+            \end{tabularx}
+        \end{center}
+    \end{minipage}
+    \begin{minipage}{0.02\boxwidth}
+        \ 
+
+    \end{minipage}
+    \begin{minipage}[t]{0.6\boxwidth}\vspace*{0pt}
+        \begin{tabularx}{\boxwidth}{| X |}
+            \hline
+            \ATLHeader{Communication Skills}\\\hline
+            \ATLSkill{...make inferences and draw conclusions...}\\\hline
+            \QuestionBox{Using a table or the \emph{total resistance of a parallel circuit} formula, determine what the total resistance in this circuit should be. Explain why this value does not \emph{exactly} match the multimeter measurement for total resistance.}\\\hline
+            \ \\[3.5cm]\hline
+        \end{tabularx}
+    \end{minipage}
     \pagebreak
  
     \begin{tabularx}{\boxwidth}{| X | }
@@ -415,7 +568,7 @@
             \draw (3, -0.5) |- (0, -1) -- (0, 0);
         \end{circuitikz}
         \hfill\, \\
-        \cellcolor{QuestionHeaderBG}In such a circuit, the parallel resistors could be counted as if they were a single resistor in series with the rest of the circuit, but with a value calculated based on the resistors in parallel formula given in the technical background.\\[1cm]
+        \cellcolor{QuestionHeaderBG}In such a circuit, the parallel resistors can be counted as if they were a single resistor in series with the rest of the circuit, but with a value calculated based on the resistors in parallel formula given in the technical background.\\[1cm]
         \cellcolor{QuestionHeaderBG}Calculate the total resistance in the circuit example given above.\\\hline
         \ \\[1.5cm]\hline
         \QuestionBox{Create a paper circuit below of the above circuit and test your calculation using a multimeter.}\\\hline
