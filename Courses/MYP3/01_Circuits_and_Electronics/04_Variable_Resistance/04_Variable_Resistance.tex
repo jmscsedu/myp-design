@@ -1,5 +1,8 @@
 \include{Includes/Guided_Notes_Preamble}
 
+\usepackage{circuitikz}
+\usetikzlibrary{arrows}
+
 \def\CourseName{MYP3}
 
 \def\LessonNumber{04}
@@ -67,11 +70,143 @@
     \pagebreak
 
     \section{Technical Background}
-    
+
+    \subsection{Variable Resistors}
+    \subsubsection*{Potentiometer}
+
+    \subsubsection*{Photoresistor}
+
     \pagebreak
 
     \section{Developing Technical Skills}
+    \subsection{Circuit \#11}
+    Our first circuit this lesson will use the photoresistor to provide variable resistance for the circuit.
+
+    \subsubsection*{You Will Need}
+    \begin{itemize}[noitemsep]
+        \item[(1)] CR2032 Battery
+        \item[(1)] Photoresistor/LDR
+        \item[(1)] LED
+        \item[(1)] Roll of Copper Tape
+        \item[(1)] Roll of Cellophane Tape   
+    \end{itemize}
+
+    \subsubsection*{Directions}
+    Create the following paper circuit, then wave your hand over the LDR to observe the effects of variable resistance on the LED.
+
+    \bigskip\medskip
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[line width=6mm,YellowOrange] (0, 1) |- (4, 5)
+                                                (6, 5) -| (10, 1)
+                                                (10,-1) |- (0, -5) -- (0, 0);
+                                                ;
+
+            \begin{scope}[xshift=5cm,yshift=5cm]   % Photoresistor / LDR
+                \draw[black!50,very thick] (-2, 0) -- (2, 0);
+                \clip (-0.25, -0.23) rectangle (0.25, 0.23);
+                \fill[fill=Orange!75] (0, 0) circle (0.25);
+                \clip (-0.2, -0.175) rectangle (0.2, 0.175);
+                \fill[fill=black!15] (0, 0) circle (0.2);
+                \draw[Orange] (0, 0.175) -- (0, 0.1) -- (-0.125, 0.1) -- (-0.125, 0.05) -- (0.125, 0.05) -- (0.125, 0) -- (-0.125, 0) -- (-0.125, -0.05) -- (0.125, -0.05) -- (0.125, -0.1) -- (0, -0.1) -- (0, -0.175);
+            \end{scope}
+
+            \fill[black!25] (0, 0) circle (10mm);            
+            \draw[line width=6mm, dashed,YellowOrange!50,draw opacity=0.5] (0, -0.25) -- (0, -1);
+            \draw[line width=6mm,YellowOrange] (0, 0.25) -- (0, 1);
+            \node[align=center] at (0, 0) {CR2032};
+
+            \draw[very thick,black!50] (10, 2) -- (10, -2);
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]10,0) arc (-60:240:2.5mm);
+
+
+            \draw[->,>=triangle 45,very thick,red] (2.5, 3.4) node[below] {A} -- (2.5, 4.4);
+            \draw[->,>=triangle 45,very thick,black] (7.5, 3.4) node[below] {A} -- (7.5, 4.4);
+        \end{tikzpicture}
+    \end{center}
+
+    \bigskip
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills}\\\hline
+        \ATLSkill{...make inferences and draw conclusions...}\\\hline
+        \QuestionBox{Use a multimeter to measure the resistance of the LDR in the above circuit as the light entering it changes. Do the results agree with your idea of how this variable resistor works? Why or why not?}\\\hline
+        \ \\[3cm]\hline
+    \end{tabularx}
     
+    \pagebreak
+    \subsection{Circuit \#12}
+    The following circuit will allow you to explore the behaviours of the potentiometer, particularly as you turn it in each direction.
+
+    \subsubsection*{You Will Need}
+    \begin{itemize}[noitemsep]
+        \item[(1)] CR2032 Battery
+        \item[(1)] Potentiometer
+        \item[(2)] LEDs
+        \item[(1)] Roll of Copper Tape
+        \item[(1)] Roll of Cellophane Tape    
+    \end{itemize}
+
+    \subsubsection*{Directions}
+    Create the following paper circuit and manipulate the potentiometer to observe its effects on the two LEDs.
+
+    \medskip
+    \textbf{Note:} The gaps between the terminals of the potentiometer are necessary. You may need to trim your copper tape slightly if you are having trouble leaving enough space.
+
+    \bigskip
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[line width=6mm,YellowOrange] (0, 1) |- (8, 5) -- (8, 0);
+            \draw[line width=6mm,YellowOrange] (0, -1) |- (12, -5) -- (12, -3);
+            \draw[line width=6mm,YellowOrange] (4, -5) -- (4, -3);
+            \draw[line width=6mm,YellowOrange] (7.6, 1.3) -| (4, -1);
+            \draw[line width=6mm,YellowOrange] (8.4, 1.3) -| (12, -1);
+
+            \fill[black!25] (0, 0) circle (10mm);            
+            \draw[line width=6mm, dashed,YellowOrange!50,draw opacity=0.5] (0, -0.25) -- (0, -1);
+            \draw[line width=6mm,YellowOrange] (0, 0.25) -- (0, 1);
+            \node[align=center] at (0, 0) {CR2032};
+
+            \draw[->,>=triangle 45,very thick,blue] (6, 2) to [out=-0,in=90] (8.35, 1.5);
+            \draw[->,>=triangle 45,very thick,blue] (6, 2) node[left] {leave gaps!} to [out=-0,in=90] (7.65, 1.5);
+            \begin{scope}[xshift=8cm,rotate=180]
+                \draw[fill=brown] (-0.85, 0) rectangle (0.85, -1.05);
+                \draw[fill=black!25] (-0.15, -0.9) rectangle (0.15, -1.3);
+                \draw[fill=black!25] (-0.4, -0.9) rectangle (-0.7, -1.3);
+                \draw[fill=black!25] (0.4, -0.9) rectangle (0.7, -1.3);
+                \draw[fill=black!25] (0, 0) circle (0.85);
+                \draw[fill=black!15] (0, 0) circle (0.3);
+                \fill[black!50] (-0.3, -0.05) rectangle (0.3, 0.05);
+            \end{scope}
+
+            \draw[very thick,black!50] (4, 0) -- (4, -4);
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]4,-2) arc (-60:240:2.5mm);
+
+            \draw[very thick,black!50] (12, 0) -- (12, -4);
+            \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]12,-2) arc (-60:240:2.5mm);
+
+            \draw[->,>=triangle 45,very thick,red] (1.4, 2) node[right] {A} -- (0.4, 2);
+            \draw[->,>=triangle 45,very thick,black] (1.4, -2) node[right] {A} -- (0.4, -2);
+
+            \draw[->,>=triangle 45,very thick,red] 
+                (6.6, 3) node[left] {B} -- (7.6, 3);
+            \draw[->,>=triangle 45,very thick,red]    
+                (9.4, 3) node[right] {C} -- (8.4, 3);
+            \draw[->,>=triangle 45,very thick,black]
+                (6, -0.2) node[below] {B} -- (6, 0.8);
+            \draw[->,>=triangle 45,very thick,black]
+                (10, -0.2) node[below] {C} -- (10, 0.8);    
+        \end{tikzpicture}
+    \end{center}
+
+    \bigskip
+    \begin{tabularx}{\boxwidth}{| X |}
+        \hline
+        \ATLHeader{Communication Skills}\\\hline
+        \ATLSkill{...make inferences and draw conclusions...}\\\hline
+        \QuestionBox{Using a multimeter to take the appropriate measurements, describe the behaviour of the potentiometer.}\\\hline
+        \ \\[4cm]\hline
+    \end{tabularx}
     \pagebreak
     
     \section{Reflections}
