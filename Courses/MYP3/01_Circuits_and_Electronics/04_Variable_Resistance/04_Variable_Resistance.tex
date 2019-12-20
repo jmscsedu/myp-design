@@ -70,11 +70,74 @@
     \pagebreak
 
     \section{Technical Background}
-
     \subsection{Variable Resistors}
-    \subsubsection*{Potentiometer}
+    So far, we have been using \emph{fixed-value} resistors in our circuits; however, there are a large variety of devices and applications which require \emph{variable-value} resistors. These resistors will impact the flow of electricity difference based on a numer of environmental or user-controlled factors.
 
-    \subsubsection*{Photoresistor}
+    \medskip
+    Although there are a wide variety of these types of resistors, our efforst will focus on only two: the potentiometer and the photoresistor, or light-dependent resistor (LDR).
+    
+    \bigskip
+    \begin{tabularx}{\boxwidth}{| >{\bfseries}p{0.15\boxwidth} | X | >{\centering\arraybackslash}p{0.15\boxwidth} | >{\centering\arraybackslash}p{0.15\boxwidth}| }
+        \hline
+        \BoxHeader{1}{Name} & \BoxHeader{1}{Description} & \BoxHeader{1}{Symbol} & \BoxHeader{1}{Example} \\\hline
+        Photoresistor (LDR) & A photoresistor, or light-dependent resistor (LDR), has a resistance value that varies based on the presence of ambient light. & \raisebox{-0.5cm}{\tikz \draw (0, 0) to [photoresistor] (2, 0);} & ... \\\hline
+        Potentiometer & A potentiometer is used to add the ability to vary either voltage or resistance to a circuit through some physical manipulation, often the turning of a knob or position of a slider. & \raisebox{-0.75cm}{\tikz \draw (0, 0) to [european potentiometer] (2, 0);} & ...\\\hline
+    \end{tabularx}
+
+    \subsubsection*{The Potentiometer}
+    The potentiometer is an interesting device in how simple the classic version actually is. Below is a diagram labeling the essential components of a potentiometer.
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[line width=6mm,Brown!50] (240:1cm) arc (240:-60:1cm);
+            \draw[line width=3mm,black!35] (-1, 1) -- (0, 0) -- (0, -1.1);
+            \draw (0, -1.1) -- (0, -1.5) node [below] {W};
+            \draw (-0.5, -0.9) -- (-0.5, -1.5) node[below] {A};
+            \draw (0.5, -0.9) -- (0.5, -1.5) node[below] {B};
+
+            \draw[->,>=latex,very thick,blue] (2, 0) node[right] {resistant material} -- (1.5, 0);
+            \draw[->,>=latex,very thick,blue] (1.85, 0.5) node[right,xshift=5,yshift=-2] {wiper} to [out=-20,in=45] (-0.2, 0.5);
+            \draw[->,>=latex,very thick,blue] (2, -0.5) node[right] {terminals} to [out=240,in=90] (0, -1);
+        \end{tikzpicture}
+    \end{center}
+
+    Turning the knokb of the potentiometer changes the position of the ``wiper'' along the resistant material. Depending on the configuration of the circuit, this will either vary source voltage to the rest of the circuit, or introduce variable resistance to the circuit.
+
+    \bigskip
+    \begin{minipage}{0.475\boxwidth}
+        {\bfseries Varying Voltage}
+
+        When the wiper and one of the other terminals is given a positive charge as in the simple circuit below, then the potentiometer can be thought of as varying the voltage to the circuit.
+
+            \begin{center}
+                \begin{circuitikz}
+                    \draw (1, 1.5) to [european potentiometer,n=p] (3, 1.5);
+                    \draw (0, 0) to [battery1,invert] (0, 1) |- (p.b);
+                    \draw (0, 1) |- (p.wiper);
+                    \draw (3, 1.5) |- (3, -0.5) to [full led] (1, -0.5) -| (0, 0);
+                \end{circuitikz}
+            \end{center}
+    \end{minipage}
+    \begin{minipage}{0.0425\boxwidth}
+        \
+
+    \end{minipage}
+    \begin{minipage}{0.475\boxwidth}
+        {\bfseries Varying Resistance}
+
+        When power is supplied to the wiper and a component is attached to one of the terminals, then the potentiometer can be thought of as varying the resistance to the circuit powering that component.
+        
+        \begin{center}
+            \begin{circuitikz}
+                \draw (1, 1.5) to [european potentiometer,n=p] (3, 1.5);
+                \draw (0, 0) to [battery1, invert] (0, 1) |- (p.wiper);
+                \draw (3, 1.5) |- (3, -0.5) to [full led] (1, -0.5) -| (0, 0);
+            \end{circuitikz}
+        \end{center}
+    \end{minipage}
+
+    \medskip
+    \textbf{Note:} The two circuits above are very similar in both form and function. The actual difference between the behaviours of the circuits and why you'd choose one over the other is beyond the scope of this course.
 
     \pagebreak
 
