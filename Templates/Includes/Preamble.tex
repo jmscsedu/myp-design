@@ -57,6 +57,9 @@
 \definecolor{SummativeHeaderBG}{RGB}{195, 15, 15}
 \definecolor{SummativeHeaderText}{RGB}{255, 255, 255}
 
+\definecolor{WarningHeaderBG}{RGB}{250, 220, 125}
+\definecolor{WarningHeaderText}{RGB}{0, 0, 0}
+
 \newcommand{\ATLHeader}[1]{
     \cellcolor{ATLHeaderBG}\textcolor{ATLHeaderText}{
         \bfseries\footnotesize
@@ -119,6 +122,11 @@
     }
 }
 
+\newcommand{\WarningHeader}[1]{
+    \cellcolor{WarningHeaderBG}\textcolor{WarningHeaderText}{
+        \textbf{\footnotesize\faExclamationTriangle} {\normalfont #1} \hfill \textbf{\footnotesize\faExclamationTriangle}
+    }
+}
 \newcounter{QuestionCounter}
 
 \newcommand{\QuestionBox}[1]{
