@@ -2,7 +2,6 @@
 
 \usepackage{tikzsymbols}
 \usepackage[arrowmos]{circuitikz}
-
 \usetikzlibrary{calc}
 
 \def\CourseName{MYP3}
@@ -120,19 +119,17 @@
 
     \bigskip
     \begin{center}
+        \newdimen\R
+        \R=0.38cm
         \begin{tikzpicture}
             \draw[line width=6mm,YellowOrange]  
-                (12, 1) |- (0, 5)
+                (14, 1) |- (0, 5)
                 (0, 4) -| (5, 2) -- (7.25, 2)
                 (8, 5) -- (8, 3)
                 (8, 1) -- (8, -1)
-                (8, -3) -- (8, -5) -| (12, -1)            
+                (8, -3) |- (10, -5) 
+                (12, -5) -| (14, -1)            
             ;
-
-            \fill[black!25] (12, 0) circle (10mm);            
-            \draw[line width=6mm, dashed,YellowOrange!50,draw opacity=0.5] (12, -0.25) -- (12, -1);
-            \draw[line width=6mm,YellowOrange] (12, 0.25) -- (12, 1);
-            \node[align=center] at (12, 0) {CR2032};
 
             \begin{scope}[xshift=8cm,yshift=2cm]
                 \draw[black!50,very thick] (0, 2) -- (0, -2);
@@ -142,6 +139,31 @@
 
             \draw[very thick,black!50] (8, 0) -- (8, -4);
             \fill[left color=red, right color=black!70] ([shift=(-60:2.5mm)]8,-2) arc (-60:240:2.5mm);
+
+            % 9-Volt Battery:
+            \filldraw[fill=black!25,rounded corners] (13.155, -1.3) rectangle (14.845, 1.3);
+
+
+            \draw[fill=black!50,line width=0.5mm] (14, 0.72) circle (\R);
+            \draw[fill=black!50,line width=0.5mm] (14, -0.72) circle (1.2\R);
+            \begin{scope}[xshift=14cm,yshift=-0.72cm]
+                \draw[fill=black!25,line width=0.5mm] (0:0.38) \foreach \x in {60,120,...,359} {
+                    -- (\x:0.38)
+                }-- cycle (90:0.38);
+            \end{scope}
+
+            \draw[line width=6mm,YellowOrange!50,dashed,draw opacity=0.75] (14, 0.25) -- (14, 1.3);     
+            \draw[line width=6mm,YellowOrange!50,dashed,draw opacity=0.75] (14, -0.25) -- (14, -1.3);
+            % end 9-Volt Battery.
+
+            % Resistor (requires calc library)
+            \coordinate (R1) at (9, -5);
+            \draw[very thick, black!50] (R1) -- ($(R1) + (4, 0)$);
+            \draw[fill=Tan ] ($(R1) + (1.4, 0.25)$) rectangle ($(R1) + (2.6, -0.25)$);
+            \draw[fill=Yellow] ($(R1) + (1.6, 0.25)$) rectangle ($(R1) + (1.7, -0.25)$);
+            \draw[fill=Purple] ($(R1) + (1.8, 0.25)$) rectangle ($(R1) + (1.9, -0.25)$);
+            \draw[fill=Brown] ($(R1) + (2.0, 0.25)$) rectangle ($(R1) + (2.1, -0.25)$);
+            \draw[fill=Goldenrod] ($(R1) + (2.5, 0.25)$) rectangle ($(R1) + (2.4, -0.25)$);
         \end{tikzpicture}
     \end{center}
 
