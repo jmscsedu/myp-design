@@ -1,9 +1,71 @@
 \include{Includes/Preamble}
 
-\usepackage{circuitikz,tabularx}
+\usepackage{circuitikz,subcaption,tabularx}
 
 \pagestyle{empty}
 \begin{document}
+    % Titlepage
+    \begin{center}
+        {\huge\bfseries Detecting Light}\\
+        {\small Unit 01: Circuits \& Electronics, Summative Task}
+    \end{center}
+
+    \subsection*{Challenge}
+    The following circuits allow the \emph{load} to be powered depending on the presence of ambient light.
+
+    \bigskip
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.475\linewidth}
+            \begin{circuitikz}
+                \draw (0, 0) node[above,xshift=-0.5] {+} to [battery,l=9v] (-1, 0)
+                    (0, 0) -| (3, 6) to [european resistor,l=1k$\Omega$] (-0.5, 6) -- (-1.5, 6)
+                    (3, 3)  -- (0.25, 3)
+                    (-0.5, 3) node[npn,rotate=-90] {} (0, 2)
+                    (-0.5, 6) -- (-0.5, 3.5)
+                    (-3.5, 6) to [photoresistor] (-1.5, 6)
+                    (-3.5, 6) -| (-4 , 3) -- (-1.25, 3)
+                    (-4, 3) |- (-1, 0)
+                    
+                ;
+                \draw (-0.5, 3.25) circle (0.6);
+                \node (rect) at (1.35, 3) [draw,fill=black!25,minimum width=1.5cm, minimum height=1cm] {LOAD};
+            \end{circuitikz}
+            \caption*{Light Detection Circuit\hspace{1cm}\ }
+        \end{subfigure}
+        \begin{subfigure}{0.475\linewidth}
+            \begin{circuitikz}
+                \draw (0, 0) node[above,xshift=-0.5] {+} to [battery,l=9v] (-1, 0)
+                    (0, 0) -| (3, 6)
+                    (-0.5, 6) -- (-1.5, 6)
+                    (3, 3)  -- (0.25, 3)
+                    (-0.5, 3) node[npn,rotate=-90] {} (0, 2)
+                    (-0.5, 6) -- (-0.5, 3.5)
+                    (-1.5, 6) to [european resistor,l=100k$\Omega$] (-3.5, 6)
+                    (-3.5, 6) -| (-4 , 3) -- (-1.25, 3)
+                    (-4, 3) |- (-1, 0)
+                    
+                ;
+                \draw (-0.5, 6) to [photoresistor] (3, 6);
+                \draw (-0.5, 3.25) circle (0.6);
+                \node (rect) at (1.35, 3) [draw,fill=black!25,minimum width=1.5cm, minimum height=1cm] {LOAD};
+            \end{circuitikz}
+            \caption*{Dark Detection Circuit\hspace{1cm}\ }
+        \end{subfigure}
+    \end{figure}
+
+    \bigskip
+    You must determine a \emph{problem} that would benefit from the use of either one or both of the circuits above. You must then create a product that will accomplish some meaningful task to solve that problem. All decisions on what your final product will do should be based on your own ideas and/or research.
+
+    \subsection*{Specifications}
+    For this project, you must use each of the components (resistor, light dependent resistor, and transistor) ; however, the selction of the ``load'' can be based on your own specifications with consultation with the teacher regarding available materials and supplies.
+
+    \medskip
+    Your final product should be a complete or prototype of a complete product, and not just an implemented circuit.
+    \subsection*{Assessment}
+    You will be assessed on all sixteen objective strands presented in the design cycle and must produce a design report detailing your process and final product.
+
+    \pagebreak
     \section*{Criterion A (Inquiring \& Analysing)}
 
     \subsection*{A1: Design Need}
@@ -18,8 +80,9 @@
             \item[State] Give a specific name, value or other brief answer without explanation or calculation.
         \end{description}
 
+
     \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
-        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Task-Specific Clarification}\\\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
         1--2 & The student \textbf{states} the need for for a solution to a problem. & The problem you've chosen is stated simply or suggests only a direct use of the challenge you've been given. \\\hline
         3--4 & The student \textbf{outlines} the need for a solution to a problem. & The problem you've chosen is described adequately, but with little connections to an authentic application.\\\hline
         5--6 & The student \textbf{explains} the need for a solution to a problem. & The problem you've chosen is described fully, including a connection to an authentic application and audience.\\\hline
@@ -33,7 +96,7 @@
         \ \\[3cm]\hline
         \QuestionBox{Why does that problem require a solution?}\\\hline
         \ \\[3cm]\hline
-        \QuestionBox{Who might benefit most from it being solved?}\\\hline
+        \QuestionBox{How does the problem and its potential solution connect with the Global Context and Key and Related Concepts?}\\\hline
         \ \\[3cm]\hline
         \WarningHeader{Do \emph{not} describe a potential solution to the problem.}\\\hline
     \end{tabularx}
@@ -50,21 +113,36 @@
             \item[State] Give a specific name, value or other brief answer without explanation or calculation.
         \end{description}
 
-    \subsubsection*{Qualifiers}
-        \begin{description}
-            \item[...independently...] No additional help is needed to develop the research plan.
-            \item[...some of...] The research described is missing or incomplete. 
-            \item[...with some guidance...] Some additional help is needed to develop the research plan.
-        \end{description}
     \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
-        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Task-Specific Clarification}\\\hline
-        1--2 & The student \textbf{states some of} the main findings of relevant research. & \\\hline
-        3--4 & The student \textbf{states} the research needed to \textbf{develop} a solution to the problem, \textbf{with some guidance}. & \\\hline
-        5--6 & The student \textbf{constructs} a research plan, which \textbf{states} and \textbf{prioritizes} the primary and secondary research needed to \textbf{develop} a solution to the problem, \textbf{with some guidance}. & \\\hline
-        7--8 & The student \textbf{constructs} a research plan, which \textbf{states} and \textbf{prioritizes} the primary and secondary research needed to \textbf{develop} a solution to the problem \textbf{independently}. & \\\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 & The student \textbf{states some of} the main findings of relevant research. & The research described is missing or incomplete. \\\hline
+        3--4 & The student \textbf{states} the research needed to \textbf{develop} a solution to the problem, \textbf{with some guidance}. & Some additional help is needed to develop a basic research plan which supports the problem and its solution. \\\hline
+        5--6 & The student \textbf{constructs} a research plan, which \textbf{states} and \textbf{prioritizes} the primary and secondary research needed to \textbf{develop} a solution to the problem, \textbf{with some guidance}. & Some additional help is needed to develop a research plan which supports the problem and its solution. The sources for information are identified as Primary or Secondary, and priorities are assigned to each question.\\\hline
+        7--8 & The student \textbf{constructs} a research plan, which \textbf{states} and \textbf{prioritizes} the primary and secondary research needed to \textbf{develop} a solution to the problem \textbf{independently}. & No help is needed to develop a research plan which supports the problem and its solution. The sources for information are identified as Primary or Secondary, adn priorities are assigned to each question.\\\hline
     \end{tabularx}    
 
     \subsubsection*{Guiding Questions}
+    Answers to each of the following question should provide insight into creating your research plan. In particular, use the following questions to narrow down what additional \emph{research questions} you have.
+
+    \medskip
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{What additional information do I need to know about the \emph{problem}?}\\\hline
+        \ \\[2cm]\hline
+        \QuestionBox{What additional information do I need to know about the \emph{audience}?}\\\hline
+        \ \\[2cm]\hline
+        \QuestionBox{What additional information do I need to know about \emph{potential solutions} to the problem?}\\\hline
+        \ \\[2cm]\hline
+    \end{tabularx}
+
+    \bigskip
+    Use the following questions for \emph{each} research question to properly explain its need.
+
+    \medskip
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{How important is the research question?}\\\hline
+        \QuestionBox{Why do I need an answer to the question?}\\\hline
+        \QuestionBox{Where will I get information related to this question?}\\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{A3: Existing Products}
@@ -72,19 +150,41 @@
 
     \subsubsection*{Command Terms}
         \begin{description}
-            \item[Analyse]
-            \item[Describe]
-            \item[Outline]  
+            \item[Analyse] Break down in order to bring out the essential elements or structure.
+            \item[Describe] Give a detailed account or picture of a situation, eent, pattern, or process.
+            \item[Outline] Give a brief account or summary.
         \end{description}
     \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
-        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Task-Specific Clarification}\\\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
         1--2 & \multicolumn{2}{| c |}{\cellcolor{black!25}}\\\hline
-        3--4 & The student \textbf{outlines one existing} product that inspires a solution to the problem. & \\\hline
-        5--6 & The student \textbf{describes} a group of similar products that inspire a solution to the problem. & \\\hline
-        7--8 & The student \textbf{analyses} a group of similar products that inspire a solution to the problem. & \\\hline
+        3--4 & The student \textbf{outlines one existing} product that inspires a solution to the problem. & Only one product, or extremely similar products, is described that presents a solution to the problem.\\\hline
+        5--6 & The student \textbf{describes} a group of similar products that inspire a solution to the problem. & A number of existing products are described that present a solution to the problem. These products should differ in some significant way.\\\hline
+        7--8 & The student \textbf{analyses} a group of similar products that inspire a solution to the problem. & A number of existing products are described that present a solution to the problem. The products are also analysed for strenght of approach to the problem, and specific features are called out as being exceptional. \\\hline
     \end{tabularx}
 
     \subsubsection*{Guiding Questions}
+    Each of the following questions should guide you in your search for products taht already exist which tackle your stated problem.
+
+    \medskip
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{Do you already know of any products that address your problem?}\\\hline
+        \ \\[2cm]\hline
+        \QuestionBox{What type of product might exist that already addresses your problem?}\\\hline
+        \ \\[2cm]\hline
+        \QuestionBox{How can your problem be divided into sub-problems, each of which migiht have been solved differently by different products?}\\\hline
+        \ \\[2cm]\hline
+        \WarningHeader{Your products should be \emph{similar}, but each should differ enough to represent a range of approaches or designs.}\\\hline
+    \end{tabularx}
+
+    \bigskip
+    Evaluate each of the existing product you find using the following questions.
+
+    \medskip
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{What is the product? Describe its major features.}\\\hline
+        \QuestionBox{How well does it address the problem or sub-problem?}\\\hline
+        \QuestionBox{In what ways does the product inspire your own solution?}\\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{A4: Design Brief}
@@ -92,60 +192,243 @@
 
     \subsubsection*{Command Terms}
         \begin{description}
-            \item[Develop]
-            \item[Outline] 
+            \item[Analyse] Break down in order to bring out the essential elements or structure.
+            \item[Develop] Improve incrementally, elaborate or expand in detail. Evolve to a more advanced or effective state.
+            \item[Outline] Give a brief account or summary.
+            \item[Present] Offer for display, observation, examination, or consideration.
         \end{description}
 
     \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
-        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Task-Specific Clarification}\\\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
         1--2 & \multicolumn{2}{| c |}{\cellcolor{black!25}}\\\hline
-        3--4 & The student \textbf{develops} a \textbf{basic} design brief, which \textbf{outlines some of the findings} of relevant research. & \\\hline
-        5--6 & The student \textbf{develops} a design brief, which \textbf{outlines} the \textbf{findings} of relevant research. & \\\hline
-        7--8 & The student \textbf{develops} a design brief, which \textbf{presents} the \textbf{analysis} of relevant research. & \\\hline
+        3--4 & The student \textbf{develops} a \textbf{basic} design brief, which \textbf{outlines some of the findings} of relevant research. & The design brief references research and/or existing products without providing a complete overview of the information found or the various approaches to solving the problem presented. \\\hline
+        5--6 & The student \textbf{develops} a design brief, which \textbf{outlines} the \textbf{findings} of relevant research. & The design brief completely summarizes the research performed, including any insights drawn from existing products for the approach to a problem.\\\hline
+        7--8 & The student \textbf{develops} a design brief, which \textbf{presents} the \textbf{analysis} of relevant research. & The design brief completely summarizes the research performed, including insights drawn from existing products for the approach to a problem. Conclusions are drawn based on this research to handle: the most important information gathered, the most relevant existing solution to the problem, and how the research informs future solutions to the problem.\\\hline
     \end{tabularx}
 
     \subsubsection*{Guiding Questions}
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{What are the most important results of the research you performed?}\\\hline
+        \ \\[4cm]\hline
+        \QuestionBox{What aspects of the existing products you analysed will inform your own solution to the problem?}\\\hline
+        \ \\[4cm]\hline
+        \WarningHeader{You'll want to restate your problem, but do \emph{not} make that the emphasis of this section.}\\\hline
+    \end{tabularx}
 
     \pagebreak
     \section*{Criterion B (Developing Ideas)}
     
     \subsection*{B1: Design Specifications}
+    \emph{...develop a design specification which outlines the success criteria for the design of a solution based on the data collected...}
 
+    \subsubsection*{Command Terms}
+        \begin{description}
+            \item[Construct] Display information in a diagrammatic or logical form.
+            \item[Develop] Improve incrementally, elaborate or expand in detail. Evolve to a more advanced or effective state.
+            \item[Identify]  Provide an answer from a number of possibilities. Recognize and state briefly a distinguishing fact or feature.
+            \item[List] Give a seqeuence of brief answers with no explanation.
+            \item[Outline] Give a brief account or summary.
+        \end{description}
+        
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 & The student \textbf{lists} a few basic success criteria for the design of a solution. & The success criteria listed only address basic operation of the solution. (``solves the problem'', ``turns on'', etc.)\\\hline
+        3--4 & The student \textbf{constructs} a list of success criteria for the design of a solution. & The success cirteria listed are logical, but still address mainly functional requirements of the solution.\\\hline
+        5--6 & The student \textbf{develops} design specifications, which \textbf{identify} the success criteria for the design of a solution. & The success criteria listed are  well thoughout, described, and present a variety of different criteria for success for both functional and non-functional requirements.\\\hline
+        7--8 & The student \textbf{develops} a design specification which \textbf{outlines} the success criteria for the design of a solution based on the data collected. & The success criteria listed are well thoughtout, described, and present a variety of different criteria for success for both functional and non-functional requirements. The criteria described are measurable in a meaningful way.\\\hline
+    \end{tabularx}
+
+    \subsection*{Guiding Questions}
+    Answers to each of the following questions will guide you in creating a number of distinct, measurable, and useful success criteria.
+
+    \bigskip
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{What problem should the product solve?}\\\hline
+        \ \\[0.5cm]\hline
+        \QuestionBox{How long should the product take to build/create?}\\\hline
+        \ \\[0.5cm]\hline
+        \QuestionBox{What are the \emph{knowledge} requirements for the creation of the product?}\\\hline
+        \ \\[0.5cm]\hline
+        \QuestionBox{What are the \emph{material} requirements for the product?}\\\hline
+        \ \\[0.5cm]\hline
+        \QuestionBox{What are the \emph{aesthetic} requirements for the product?}\\\hline
+        \ \\[0.5cm]\hline
+        \QuestionBox{How should the product be used by the end-user?}\\\hline
+        \ \\[0.5cm]\hline
+        \WarningHeader{Do not consider the above questions \emph{comprehensive}! You will still need to decide if any other criteria exist.}\\\hline
+    \end{tabularx}
+    
     \pagebreak
     \subsection*{B2: Design Ideas}
+    \emph{...present a range of feasible design ideas, which can be correctly interpreted by others...}
+ 
+    \subsubsection*{Command Terms}
+        \begin{description}
+            \item[Annotate] Add brief notes to a diagram or graph.
+            \item[Explain] Give a detailed account including reasons or causes.
+            \item[Present] Offer for display, observartion, examination, or consideration.
+        \end{description}
+ 
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  The student \textbf{presents} one design idea, which can be interpreted by others. & Only a single idea is given. \\\hline
+        3--4 & The student \textbf{presents a few} feasible design ideas, using an appropriate medium(s) \textbf{or explains} key features, which can be interpreted by others. & A few ideas are described with sufficient information to be understood. \\\hline
+        5--6 & The student \textbf{presents a range of} feasible design ideas, using an appropriate medium(s) \textbf{and explains} key featuers, which can be interpreted by others. & A number of ideas are described with sufficient information to be understood, including through the use of diagrams and written explanations. The ideas vary significantly in approach, form, or function. \\\hline
+        7--8 & The student \textbf{presents a range of} feasible design ideas, using an appropriate medium(s) \textbf{and annotation}, which can be correctly interpreted by others. & A number of ideas are described with sufficient information to be understood, including through the use of diagrams and written explanations. The ideas vary significantly in approach, form, or function, and all can be accomplished against the design requirements. \\\hline
+    \end{tabularx}
+
+    \subsection*{Guiding Questions}
+
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{What different approaches can I take in solving the problem?}\\\hline
+        \ \\[3cm]\hline
+        \QuestionBox{What are the major features of the products I am considering building?}\\\hline
+        \ \\[3cm]\hline
+        \QuestionBox{What appropriate diagrams or drawings can I include to enahance the understanding of my designs?}\\\hline
+        \ \\[3cm]\hline
+        \WarningHeader{A \emph{range of} does not indicate a number. Go for a varied approach instead!}\\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{B3: Chosen Design}
+    \emph{...present the chosen design and outline the reasons for its selection...}
+
+    \subsubsection*{Command Terms}
+        \begin{description}
+            \item[Outline] Give a brief account or summary.
+            \item[Present] Offer for display, observation, examination, or consideration.
+        \end{description}
+
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 & \multicolumn{2}{| c |}{\cellcolor{black!25}}\\\hline
+        3--4 & The student \textbf{outlines} the \textbf{main} reasons for choosing the design with reference to the design specification. & A brief description as to why the design was chosen, referencing how well suited it is as a solution to the problem is given. \\\hline
+        5--6 & The student \textbf{presents} the chosen design and \textbf{outlines} the \textbf{main} reasons for its selection with reference to the design specification. & The design is given again and a brief description as to why the design was chosen, reerencing how well suited it is as a solution to the problem is given. \\\hline
+        7--8 & The student \textbf{presents} the chosen design and \textbf{outlines} the reasons for its selection with reference to the design specification. & The design is given again and a brief description as to why the design was chosen, referencing how well sutied it is against all success criteria is given. \\\hline
+    \end{tabularx}
+
+    \subsection*{Guiding Questions}
+
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{Which of my designs is best suited to solve the problem presented?}\\\hline
+        \ \\[3cm]\hline
+        \QuestionBox{How well does each of my design meet each of the success criteria?}\\\hline
+        \ \\[3cm]\hline
+        \WarningHeader{Make sure you choose a design you can justify and not just the desing you \emph{like}.}\\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{B4: Detailed Plans}
+    \emph{...develop accurate planning drawings/diagrams and outline requirements for the creation of the chosen solution...}
+
+    \subsubsection*{Command Terms}
+        \begin{description}
+            \item[Create] Evolve from one's own thought or imagination, as a work or an invention.
+            \item[Develop] Improve incrementally, elaborate, or expand in detail. Evolve to a mroe advanced or effective state.
+            \item[List] Give a sequence of brief answers with no explanation.
+            \item[Outline]Give a brief account or summary.
+        \end{description}
+
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 & The student \textbf{creates} incomplete planning drawings/diagrams. & The planning diagrams or drawings do not fully describe all features of the final product. \\\hline
+        3--4 & The student \textbf{creates} planning drawings/diagrams or \textbf{lists} requirements for the chosen solution. & The planning diagrams or drawings fully describe all features of the final product or a list of these features is given instead of the diagrams. \\\hline
+        5--6 & The student \textbf{develops} accurate planning drawings/diagrams and \textbf{lists} requirements for the creation of the chosen solution. & The planning diagrams or drawings fully describe all features of the final product and a list of these features is given alongside them. \\\hline
+        7--8 & The student \textbf{develops} accurate planning drawings/diagrams and \textbf{outlines} requirements for the creation of the chosen solution. & The planning diagrams or drawings fully describe all features of the final product through detailed annotations. \\\hline
+    \end{tabularx}
+
+    \subsection*{Guiding Questions}
+
+    \begin{tabularx}{\linewidth}{| X |}\hline
+        \QuestionBox{What are the features of the final product?}\\\hline
+        \ \\[3cm]\hline
+        \QuestionBox{What are the specific dimensions of the final product? Include sizes for physical products and digital images, as well as font choices, sizes, colours, etc.}\ \\\hline
+        \ \\[3cm]\hline
+        \QuestionBox{How will the user interact with the product? Include a flow diagram or other explanation of typical use cases.}\\\hline
+        \ \\[3cm]\hline
+    \end{tabularx}
 
     \pagebreak
     \section*{Criterion C (Creating the Solution)}
 
     \subsection*{C1: Implementation Plan}
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{C2: Technical Skills}
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{C3: Product Development}
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{C4: Changes}
-    
+        \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
+
     \pagebreak
     \section*{Criterion D (Evaluating)}
 
     \subsection*{D1: Testing Methods}
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{D2: Evaluation}
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{D3: Future Improvements}
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
 
     \pagebreak
     \subsection*{D4: Impact Analysis}
-
+    \begin{tabularx}{\linewidth}{| >{\centering\arraybackslash}p{0.05\linewidth} | X | >{\em}p{0.4\linewidth} |}\hline
+        \BoxHeader{1}{} & \BoxHeader{1}{Level Descriptor} & \BoxHeader{1}{Clarification}\\\hline
+        1--2 &  & \\\hline
+        3--4 & & \\\hline
+        5--6 & & \\\hline
+        7--8 & & \\\hline
+    \end{tabularx}
 \end{document}
